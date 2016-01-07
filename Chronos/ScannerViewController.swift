@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CloudKit
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -21,8 +22,30 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
+    let database = CKContainer.defaultContainer().publicCloudDatabase
+    
     // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
+    
+    func isICloudAvailable() -> Bool{
+        if let _ = NSFileManager.defaultManager().ubiquityIdentityToken {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func displayAlertWithTitle(title: String, message: String) {
+        let controller = UIAlertController(title: title,
+            message: message,
+            preferredStyle: .Alert)
+        
+        controller.addAction(UIAlertAction(title: "OK",
+            style: .Default,
+            handler: nil))
+        
+        presentViewController(controller, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +56,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
 
+        if !isICloudAvailable() {
+            displayAlertWithTitle("iCloud", message: "iCloud is not available." +
+            " Please sign into your iCloud account and restart this app")
+        }
 
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
         // as the media type parameter.
