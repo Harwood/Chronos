@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 AppCoda. All rights reserved.
 //
 
+// displayAlerWithTitle, isICloudAvailable from 'swift tutorials' on Youtube ( https://www.youtube.com/watch?v=olEvXlpqmsU )
 import UIKit
 import AVFoundation
 import CloudKit
