@@ -73,13 +73,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		17064A5F1C3E0E47001344E7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		F47029E71A7F27DB00E30A3C = {
 			isa = PBXGroup;
 			children = (
@@ -114,7 +107,6 @@
 				F491E7521A7F7DF20026528E /* MapViewController.swift */,
 				F491E7541A7F7E010026528E /* PhotoViewController.swift */,
 				176EC7DD1C3B77C90026957B /* ScannerViewController.swift */,
-				17064A5F1C3E0E47001344E7 /* Model */,
 			);
 			path = Chronos;
 			sourceTree = "<group>";
