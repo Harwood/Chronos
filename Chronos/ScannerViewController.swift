@@ -13,7 +13,7 @@ import CloudKit
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    @IBOutlet weak var messageLabel:UILabel!
+
     
     @IBOutlet var menuButton:UIBarButtonItem!
     
@@ -22,6 +22,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
+    
+    var foundIDs = [String]()
     
     let database = CKContainer.defaultContainer().publicCloudDatabase
     
@@ -94,9 +96,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             // Start video capture
             captureSession?.startRunning()
             
-            // Move the message label to the top view
-            view.bringSubviewToFront(messageLabel)
-            
             // Initialize QR Code Frame to highlight the QR code
             qrCodeFrameView = UIView()
             
@@ -125,7 +124,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRectZero
-            messageLabel.text = "No barcode/QR code is detected"
             return
         }
         
@@ -142,7 +140,41 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                messageLabel.text = metadataObj.stringValue
+                
+                
+                //messageLabel.text = metadataObj.stringValue
+                getStudent(metadataObj.stringValue)
+            }
+        }
+    }
+    
+    func getStudent(byID: String)  {
+        if !self.foundIDs.contains(byID) {
+            self.foundIDs.append(byID)
+            
+            print(byID)
+            
+            let query = CKQuery(recordType: "Student", predicate: NSPredicate(format: "%K == %@", "ID", byID))
+            self.database.performQuery(query, inZoneWithID: nil) { (resultsArray, queryError) -> Void in
+                
+                if queryError != nil {
+                    print("Uh oh, there was an error querying ...")
+                    print(queryError!.localizedDescription)
+                } else if resultsArray != nil {
+                    for result in resultsArray! {
+                        let record: CKRecord = result as CKRecord
+                        
+                        let msg = (record.objectForKey("Name") as? String)! + " has been checked in"
+                        
+                        let alertController = UIAlertController(title: "Student Checked In", message:
+                            msg, preferredStyle: UIAlertControllerStyle.Alert)
+                        alertController.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default,handler: nil))
+                        
+                        self.presentViewController(alertController, animated: true, completion: nil)
+
+                        self.foundIDs.removeAtIndex(self.foundIDs.indexOf(byID)!)
+                    }
+                }
             }
         }
     }

@@ -74,31 +74,13 @@
                     <view key="view" contentMode="scaleToFill" id="h35-nW-vsn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR Code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N23-ij-9Wu">
-                                <rect key="frame" x="0.0" y="560" width="600" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="kmY-LZ-T48"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="2Le-lv-78k" firstAttribute="top" secondItem="N23-ij-9Wu" secondAttribute="bottom" id="gYr-DR-ktX"/>
-                            <constraint firstItem="N23-ij-9Wu" firstAttribute="leading" secondItem="h35-nW-vsn" secondAttribute="leading" id="qZd-UC-CgK"/>
-                            <constraint firstAttribute="trailing" secondItem="N23-ij-9Wu" secondAttribute="trailing" id="svZ-7l-EsN"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Scanner" id="KmL-n1-RHk" userLabel="Scanner">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="WXD-Qt-81H" userLabel="Menu Button"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="WXD-Qt-81H" id="04O-S2-Xrj"/>
-                        <outlet property="messageLabel" destination="N23-ij-9Wu" id="ien-LJ-8AT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZ6-Zx-TYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -418,36 +400,6 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94085192679999996" green="0.94903725390000004" blue="0.95307987930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="NRl-jU-ABR">
-                                        <rect key="frame" x="0.0" y="132" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NRl-jU-ABR" id="iZz-nZ-L4P">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4d-zp-9vD">
-                                                    <rect key="frame" x="504" y="7" width="35" height="31"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tag" translatesAutoresizingMaskIntoConstraints="NO" id="1qD-XA-gGE">
-                                                    <rect key="frame" x="457" y="4" width="35" height="35"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="05P-HN-d4W"/>
-                                                        <constraint firstAttribute="width" constant="35" id="vcv-rQ-mjI"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="P4d-zp-9vD" firstAttribute="centerY" secondItem="iZz-nZ-L4P" secondAttribute="centerY" id="FBv-xd-q2g"/>
-                                                <constraint firstItem="P4d-zp-9vD" firstAttribute="centerY" secondItem="1qD-XA-gGE" secondAttribute="centerY" id="Rla-bk-8Rl"/>
-                                                <constraint firstItem="P4d-zp-9vD" firstAttribute="leading" secondItem="1qD-XA-gGE" secondAttribute="trailing" constant="12" id="XU8-eD-LDt"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="P4d-zp-9vD" secondAttribute="trailing" constant="53" id="eut-UH-pzI"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.94085192679999996" green="0.94903725390000004" blue="0.95307987930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -474,7 +426,6 @@
         <image name="map" width="1024" height="1024"/>
         <image name="menu" width="22" height="22"/>
         <image name="photo" width="1024" height="1024"/>
-        <image name="tag" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tWZ-CD-OTO"/>
