@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  QRReaderDemo
-//
-//  Created by Simon Ng on 23/11/14.
-//  Copyright (c) 2014 AppCoda. All rights reserved.
-//
 
 // displayAlerWithTitle, isICloudAvailable from 'swift tutorials' on Youtube ( https://www.youtube.com/watch?v=olEvXlpqmsU )
 import UIKit
@@ -12,8 +5,6 @@ import AVFoundation
 import CloudKit
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    
-
     
     @IBOutlet var menuButton:UIBarButtonItem!
     
@@ -30,6 +21,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
     
+    // Checking if user is signed into iCloud on the device
     func isICloudAvailable() -> Bool{
         if let _ = NSFileManager.defaultManager().ubiquityIdentityToken {
             return true
@@ -59,6 +51,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
 
+        // If not signed into iCloud notify the user that they need to before using the app
         if !isICloudAvailable() {
             displayAlertWithTitle("iCloud", message: "iCloud is not available." +
             " Please sign into your iCloud account and restart this app")
@@ -179,4 +172,3 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
 }
-

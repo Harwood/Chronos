@@ -28,41 +28,6 @@
             </objects>
             <point key="canvasLocation" x="225" y="51"/>
         </scene>
-        <!--Map-->
-        <scene sceneID="MMi-W1-KaJ">
-            <objects>
-                <viewController id="IXz-HG-hIe" customClass="MapViewController" customModule="Chronos" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1V6-Hn-ruu"/>
-                        <viewControllerLayoutGuide type="bottom" id="GLp-rp-ryS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HE4-02-mb0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nsc-35-MTe">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="nsc-35-MTe" firstAttribute="leading" secondItem="HE4-02-mb0" secondAttribute="leading" id="YdN-LU-Bp1"/>
-                            <constraint firstItem="nsc-35-MTe" firstAttribute="top" secondItem="HE4-02-mb0" secondAttribute="top" id="b27-P5-1ug"/>
-                            <constraint firstItem="nsc-35-MTe" firstAttribute="bottom" secondItem="GLp-rp-ryS" secondAttribute="top" id="qxz-OC-NpC"/>
-                            <constraint firstAttribute="trailing" secondItem="nsc-35-MTe" secondAttribute="trailing" id="uTY-dt-oMO"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Map" id="YdA-HD-78b">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="rhH-Mc-GbH"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="menuButton" destination="rhH-Mc-GbH" id="QVi-fG-i4C"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7TD-bi-rsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2577" y="51"/>
-        </scene>
         <!--Scanner View Controller-->
         <scene sceneID="gqo-FE-0PV">
             <objects>
@@ -99,7 +64,7 @@
                         <sections>
                             <tableViewSection id="uba-LA-EjJ">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="g9Q-QW-DeP">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="g9Q-QW-DeP">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g9Q-QW-DeP" id="mav-NV-Wjh">
@@ -123,7 +88,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="barcode" translatesAutoresizingMaskIntoConstraints="NO" id="4sI-me-joh">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="scanner" translatesAutoresizingMaskIntoConstraints="NO" id="4sI-me-joh">
                                                     <rect key="frame" x="18" y="4" width="35" height="35"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanner" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh3-5S-TMf">
@@ -146,11 +111,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-aa-RgE">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-aa-RgE">
                                                     <rect key="frame" x="18" y="4" width="35" height="35"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efz-Bb-kny">
-                                                    <rect key="frame" x="61" y="6" width="44" height="31"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efz-Bb-kny">
+                                                    <rect key="frame" x="61" y="6" width="65" height="31"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -162,28 +127,34 @@
                                             <segue destination="YST-2z-g0L" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Y80-0G-iRU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fyu-8k-lj0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="fyu-8k-lj0">
                                         <rect key="frame" x="0.0" y="132" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fyu-8k-lj0" id="T53-k8-WHP">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.94085192680358887" green="0.94903725385665894" blue="0.95307987928390503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="0J7-Hk-VFu" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="b63-ns-eOi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="EXE-AE-jO6">
+                                        <rect key="frame" x="0.0" y="176" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EXE-AE-jO6" id="9tA-kt-D7d">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="bQu-kf-FuS">
-                                                    <rect key="frame" x="18" y="4" width="35" height="35"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Photos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="it0-69-JpN">
-                                                    <rect key="frame" x="61" y="6" width="55" height="31"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Designed by Carter Harwood" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JE-V5-0Ko">
+                                                    <rect key="frame" x="8" y="6" width="228" height="31"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.94085192680358887" green="0.94903725385665894" blue="0.95307987928390503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="0J7-Hk-VFu" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="b63-ns-eOi"/>
-                                        </connections>
+                                        <color key="backgroundColor" red="0.94085192679999996" green="0.94903725390000004" blue="0.95307987930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -200,7 +171,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </mapView>
             </objects>
-            <point key="canvasLocation" x="980" y="51"/>
+            <point key="canvasLocation" x="991" y="51"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a23-LC-1XJ">
@@ -231,12 +202,48 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="IXz-HG-hIe" kind="relationship" relationship="rootViewController" id="emK-gG-wXw"/>
+                        <segue destination="uV4-h6-CSL" kind="relationship" relationship="rootViewController" id="IS6-W5-VIl"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Zi-DC-yja" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1765" y="51"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="5sw-r5-9Uj">
+            <objects>
+                <tableViewController id="uV4-h6-CSL" customClass="SettingsViewController" customModule="Chronos" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MeS-7A-ZmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hUx-BG-CEO">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hUx-BG-CEO" id="tcx-Jg-Aac">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uV4-h6-CSL" id="Q4w-eK-pv1"/>
+                            <outlet property="delegate" destination="uV4-h6-CSL" id="IW4-au-wS7"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Settings" id="MY8-Z5-NSw">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="OgY-W9-6kA" userLabel="Menu Button"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="menuButton" destination="OgY-W9-6kA" id="0rg-76-YzW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AKa-uP-D9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2577" y="51"/>
         </scene>
         <!--Photo-->
         <scene sceneID="yCp-Wv-509">
@@ -419,15 +426,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="barcode" width="512" height="512"/>
         <image name="calendar" width="1024" height="1024"/>
         <image name="comments" width="1024" height="1024"/>
         <image name="japanvillage" width="1800" height="1350"/>
-        <image name="map" width="1024" height="1024"/>
         <image name="menu" width="22" height="22"/>
-        <image name="photo" width="1024" height="1024"/>
+        <image name="scanner" width="50" height="50"/>
+        <image name="settings" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tWZ-CD-OTO"/>
+        <segue reference="foL-zu-uHU"/>
     </inferredMetricsTieBreakers>
 </document>

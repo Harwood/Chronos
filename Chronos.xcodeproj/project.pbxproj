@@ -8,16 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		17064A5E1C3E036B001344E7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17064A5D1C3E036B001344E7 /* CloudKit.framework */; };
+		171C1A561C4242550036A25D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C1A551C4242550036A25D /* SettingsViewController.swift */; };
 		176EC7DE1C3B77C90026957B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176EC7DD1C3B77C90026957B /* ScannerViewController.swift */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
 		F47029FB1A7F27DB00E30A3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47029F91A7F27DB00E30A3C /* Main.storyboard */; };
 		F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47029FC1A7F27DB00E30A3C /* Images.xcassets */; };
-		F4702A001A7F27DC00E30A3C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47029FE1A7F27DB00E30A3C /* LaunchScreen.xib */; };
 		F4702A0C1A7F27DC00E30A3C /* ChronosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4702A0B1A7F27DC00E30A3C /* ChronosTests.swift */; };
 		F4702A161A7F342F00E30A3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4702A151A7F342F00E30A3C /* MapKit.framework */; };
 		F4702A181A7F351C00E30A3C /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4702A171A7F351C00E30A3C /* MenuController.swift */; };
-		F491E7531A7F7DF20026528E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E7521A7F7DF20026528E /* MapViewController.swift */; };
-		F491E7551A7F7E010026528E /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E7541A7F7E010026528E /* PhotoViewController.swift */; };
 		F4D750181BD38F0C009E1003 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D750171BD38F0C009E1003 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		17064A5D1C3E036B001344E7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		171C1A551C4242550036A25D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		174325C91C3CC20B00DC4C09 /* Chronos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Chronos.entitlements; sourceTree = "<group>"; };
 		1760B6171C3B884600527940 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		176EC7DD1C3B77C90026957B /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
@@ -41,14 +40,11 @@
 		F47029F51A7F27DB00E30A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47029FA1A7F27DB00E30A3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F47029FC1A7F27DB00E30A3C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F47029FF1A7F27DB00E30A3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F4702A051A7F27DC00E30A3C /* Chronos.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Chronos.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4702A0A1A7F27DC00E30A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4702A0B1A7F27DC00E30A3C /* ChronosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronosTests.swift; sourceTree = "<group>"; };
 		F4702A151A7F342F00E30A3C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F4702A171A7F351C00E30A3C /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
-		F491E7521A7F7DF20026528E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		F491E7541A7F7E010026528E /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		F4D750161BD38F0C009E1003 /* Chronos-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Chronos-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4D750171BD38F0C009E1003 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,12 +97,10 @@
 				F47029F51A7F27DB00E30A3C /* AppDelegate.swift */,
 				F47029F91A7F27DB00E30A3C /* Main.storyboard */,
 				F47029FC1A7F27DB00E30A3C /* Images.xcassets */,
-				F47029FE1A7F27DB00E30A3C /* LaunchScreen.xib */,
 				F47029F31A7F27DB00E30A3C /* Supporting Files */,
 				F4702A171A7F351C00E30A3C /* MenuController.swift */,
-				F491E7521A7F7DF20026528E /* MapViewController.swift */,
-				F491E7541A7F7E010026528E /* PhotoViewController.swift */,
 				176EC7DD1C3B77C90026957B /* ScannerViewController.swift */,
+				171C1A551C4242550036A25D /* SettingsViewController.swift */,
 			);
 			path = Chronos;
 			sourceTree = "<group>";
@@ -237,7 +231,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47029FB1A7F27DB00E30A3C /* Main.storyboard in Resources */,
-				F4702A001A7F27DC00E30A3C /* LaunchScreen.xib in Resources */,
 				F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,8 +252,7 @@
 				F4D750181BD38F0C009E1003 /* SWRevealViewController.m in Sources */,
 				F4702A181A7F351C00E30A3C /* MenuController.swift in Sources */,
 				F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */,
-				F491E7531A7F7DF20026528E /* MapViewController.swift in Sources */,
-				F491E7551A7F7E010026528E /* PhotoViewController.swift in Sources */,
+				171C1A561C4242550036A25D /* SettingsViewController.swift in Sources */,
 				176EC7DE1C3B77C90026957B /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,14 +282,6 @@
 				F47029FA1A7F27DB00E30A3C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F47029FE1A7F27DB00E30A3C /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F47029FF1A7F27DB00E30A3C /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
