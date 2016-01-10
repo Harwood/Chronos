@@ -10,6 +10,7 @@
 		17064A5E1C3E036B001344E7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17064A5D1C3E036B001344E7 /* CloudKit.framework */; };
 		171C1A561C4242550036A25D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C1A551C4242550036A25D /* SettingsViewController.swift */; };
 		176EC7DE1C3B77C90026957B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176EC7DD1C3B77C90026957B /* ScannerViewController.swift */; };
+		177DBCBE1C42DB09007ED19E /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
 		F47029FB1A7F27DB00E30A3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47029F91A7F27DB00E30A3C /* Main.storyboard */; };
 		F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47029FC1A7F27DB00E30A3C /* Images.xcassets */; };
@@ -35,6 +36,7 @@
 		174325C91C3CC20B00DC4C09 /* Chronos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Chronos.entitlements; sourceTree = "<group>"; };
 		1760B6171C3B884600527940 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		176EC7DD1C3B77C90026957B /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		F47029F01A7F27DB00E30A3C /* Chronos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chronos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47029F41A7F27DB00E30A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47029F51A7F27DB00E30A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177DBCBE1C42DB09007ED19E /* ExternalAccessory.framework in Frameworks */,
 				F4702A161A7F342F00E30A3C /* MapKit.framework in Frameworks */,
 				17064A5E1C3E036B001344E7 /* CloudKit.framework in Frameworks */,
 			);
@@ -72,6 +75,7 @@
 		F47029E71A7F27DB00E30A3C = {
 			isa = PBXGroup;
 			children = (
+				177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */,
 				17064A5D1C3E036B001344E7 /* CloudKit.framework */,
 				F4702A151A7F342F00E30A3C /* MapKit.framework */,
 				F47029F21A7F27DB00E30A3C /* Chronos */,
@@ -369,6 +373,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Chronos/Chronos.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -388,6 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Chronos/Chronos.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
