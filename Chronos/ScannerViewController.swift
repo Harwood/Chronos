@@ -141,6 +141,55 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
+    @IBAction func addStudentAction(sender: UIBarButtonItem) {
+        
+        //1. Create the alert controller.
+        var alert = UIAlertController(title: "Add Student", message: "Enter a text", preferredStyle: .Alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextFieldWithConfigurationHandler({ (nameField) -> Void in
+            nameField.placeholder = "John Smith"
+            nameField.text = ""
+        })
+        
+        alert.addTextFieldWithConfigurationHandler({ (idField) -> Void in
+            idField.placeholder = "123456789"
+            idField.text = ""
+        })
+        
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            
+            let studentName = (alert.textFields![0] as UITextField).text
+            let studentID = (alert.textFields![1] as UITextField).text
+            
+            let studentRecord = CKRecord(recordType: "Student", recordID: CKRecordID(recordName: studentID!))
+            studentRecord.setObject(studentName, forKey: "Name")
+            
+            self.database.saveRecord(studentRecord, completionHandler: { (record, error) -> Void in
+                if error != nil {
+                    print("Error geting classes")
+                }
+                
+                self.displayAlertWithTitle("Student Added", message: studentName! + " has been added to records.")
+                
+                self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID!)!)
+                
+            })
+            
+            NSLog("OK Pressed")
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+        })
+        
+        // 4. Present the alert.
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+
     func getStudent(studentID: String)  {
         if !self.foundIDs.contains(studentID) {
             self.foundIDs.append(studentID)
@@ -171,7 +220,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 print("Error geting classes")
             }
             
-            self.displayAlertWithTitle("Student Checked In", message: studentName + " has been checked in")
+            self.displayAlertWithTitle("Student Checked In", message: studentName + " has been checked in.")
             
             self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
             

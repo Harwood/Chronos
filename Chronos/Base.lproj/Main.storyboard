@@ -43,6 +43,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Scanner" id="KmL-n1-RHk" userLabel="Scanner">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="WXD-Qt-81H" userLabel="Menu Button"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add Student" id="vxb-D1-VkN">
+                            <connections>
+                                <action selector="addStudentAction:" destination="HVW-1u-slv" id="jFq-0e-aHO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="WXD-Qt-81H" id="04O-S2-Xrj"/>
@@ -111,11 +116,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-aa-RgE">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="students" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-aa-RgE">
                                                     <rect key="frame" x="18" y="4" width="35" height="35"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efz-Bb-kny">
-                                                    <rect key="frame" x="61" y="6" width="65" height="31"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Students" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efz-Bb-kny">
+                                                    <rect key="frame" x="61" y="6" width="71" height="31"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -209,8 +214,8 @@
         <!--Settings-->
         <scene sceneID="5sw-r5-9Uj">
             <objects>
-                <tableViewController id="uV4-h6-CSL" customClass="SettingsViewController" customModule="Chronos" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MeS-7A-ZmQ">
+                <tableViewController id="uV4-h6-CSL" customClass="StudentsViewController" customModule="Chronos" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MeS-7A-ZmQ" userLabel="tblSudents">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -235,7 +240,9 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="menuButton" destination="OgY-W9-6kA" id="0rg-76-YzW"/>
+                        <outlet property="f" destination="MeS-7A-ZmQ" id="5Wc-dj-ORw"/>
+                        <outlet property="menuButton" destination="OgY-W9-6kA" id="4Z6-Bi-M2X"/>
+                        <outlet property="tblStudents" destination="MeS-7A-ZmQ" id="xFG-F0-Yqd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKa-uP-D9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -374,7 +381,7 @@
         <image name="comments" width="1024" height="1024"/>
         <image name="menu" width="22" height="22"/>
         <image name="scanner" width="50" height="50"/>
-        <image name="settings" width="50" height="50"/>
+        <image name="students" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="foL-zu-uHU"/>

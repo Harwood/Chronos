@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17064A5E1C3E036B001344E7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17064A5D1C3E036B001344E7 /* CloudKit.framework */; };
-		171C1A561C4242550036A25D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C1A551C4242550036A25D /* SettingsViewController.swift */; };
+		171C1A561C4242550036A25D /* StudentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C1A551C4242550036A25D /* StudentsViewController.swift */; };
 		176EC7DE1C3B77C90026957B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176EC7DD1C3B77C90026957B /* ScannerViewController.swift */; };
 		177DBCBE1C42DB09007ED19E /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
@@ -32,7 +32,7 @@
 
 /* Begin PBXFileReference section */
 		17064A5D1C3E036B001344E7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		171C1A551C4242550036A25D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		171C1A551C4242550036A25D /* StudentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsViewController.swift; sourceTree = "<group>"; };
 		174325C91C3CC20B00DC4C09 /* Chronos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Chronos.entitlements; sourceTree = "<group>"; };
 		1760B6171C3B884600527940 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		176EC7DD1C3B77C90026957B /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 				F47029F31A7F27DB00E30A3C /* Supporting Files */,
 				F4702A171A7F351C00E30A3C /* MenuController.swift */,
 				176EC7DD1C3B77C90026957B /* ScannerViewController.swift */,
-				171C1A551C4242550036A25D /* SettingsViewController.swift */,
+				171C1A551C4242550036A25D /* StudentsViewController.swift */,
 			);
 			path = Chronos;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 				F4D750181BD38F0C009E1003 /* SWRevealViewController.m in Sources */,
 				F4702A181A7F351C00E30A3C /* MenuController.swift in Sources */,
 				F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */,
-				171C1A561C4242550036A25D /* SettingsViewController.swift in Sources */,
+				171C1A561C4242550036A25D /* StudentsViewController.swift in Sources */,
 				176EC7DE1C3B77C90026957B /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
