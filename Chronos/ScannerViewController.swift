@@ -141,34 +141,40 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
-    func getStudent(byID: String)  {
-        if !self.foundIDs.contains(byID) {
-            self.foundIDs.append(byID)
+    func getStudent(studentID: String)  {
+        if !self.foundIDs.contains(studentID) {
+            self.foundIDs.append(studentID)
             
-            print(byID)
-            
-            let query = CKQuery(recordType: "Student", predicate: NSPredicate(format: "%K == %@", "ID", byID))
-            self.database.performQuery(query, inZoneWithID: nil) { (resultsArray, queryError) -> Void in
-                
-                if queryError != nil {
-                    print("Uh oh, there was an error querying ...")
-                    print(queryError!.localizedDescription)
-                } else if resultsArray != nil {
-                    for result in resultsArray! {
-                        let record: CKRecord = result as CKRecord
-                        
-                        let msg = (record.objectForKey("Name") as? String)! + " has been checked in"
-                        
-                        let alertController = UIAlertController(title: "Student Checked In", message:
-                            msg, preferredStyle: UIAlertControllerStyle.Alert)
-                        alertController.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default,handler: nil))
-                        
-                        self.presentViewController(alertController, animated: true, completion: nil)
-
-                        self.foundIDs.removeAtIndex(self.foundIDs.indexOf(byID)!)
-                    }
+            database.fetchRecordWithID(CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
+                guard let fetchedStudent = fetchedStudent else {
+                    print("ERROR IN GETTING STUDENT!")
+                    self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
+                    return
                 }
-            }
+                
+                let studentName = fetchedStudent["Name"] as? String ?? "Unnamed Student"
+                
+                self.checkStudentIn(studentID, studentName: studentName)
+            })
         }
+    }
+    
+    func checkStudentIn(studentID:String, studentName:String) {
+        let attendanceRecord = CKRecord(recordType: "Attendance")
+        attendanceRecord.setObject(
+            CKReference(recordID: CKRecordID(recordName: studentID),
+                action: CKReferenceAction.DeleteSelf), forKey: "Student")
+        
+        
+        database.saveRecord(attendanceRecord, completionHandler: { (record, error) -> Void in
+            if error != nil {
+                print("Error geting classes")
+            }
+            
+            self.displayAlertWithTitle("Student Checked In", message: studentName + " has been checked in")
+            
+            self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
+            
+        })
     }
 }
