@@ -150,7 +150,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func checkStudentIn(studentID:String, studentName:String) {
-        let attendanceRecord = CKRecord(recordType: "Attendance")
+        let dayTimePeriodFormatter = NSDateFormatter()
+        dayTimePeriodFormatter.dateFormat = "yyyyMMdd:HHmm"
+        
+        
+        
+        let recordName = studentID + " - " + dayTimePeriodFormatter.stringFromDate(NSDate())
+        
+        let attendanceRecord = CKRecord(recordType: "Attendance", recordID: CKRecordID(recordName: recordName))
         attendanceRecord.setObject(
             CKReference(recordID: CKRecordID(recordName: studentID),
                 action: CKReferenceAction.DeleteSelf), forKey: "Student")
