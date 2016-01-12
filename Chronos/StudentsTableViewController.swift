@@ -2,11 +2,23 @@ import UIKit
 
 class StudentsTableViewController: UITableViewController {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     var students = ["Apple", "Apricot", "Banana", "Blueberry", "Cantaloupe", "Cherry",
         "Clementine", "Coconut", "Cranberry", "Fig", "Grape", "Grapefruit",
         "Kiwi fruit", "Lemon", "Lime", "Lychee", "Mandarine", "Mango",
         "Melon", "Nectarine", "Olive", "Orange", "Papaya", "Peach",
         "Pear", "Pineapple", "Raspberry", "Strawberry"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if revealViewController() != nil {
+            menuButton.target = revealViewController()
+            menuButton.action = "revealToggle:"
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

@@ -242,7 +242,12 @@
                             <outlet property="delegate" destination="6X1-hN-zMF" id="hWJ-0D-neg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="x8I-lu-E91"/>
+                    <navigationItem key="navigationItem" id="x8I-lu-E91">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="AgC-7F-o5r"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="AgC-7F-o5r" id="JWi-d0-eaq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TkC-vb-RK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
