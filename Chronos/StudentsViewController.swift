@@ -9,12 +9,13 @@
 import UIKit
 import CloudKit
 
-class StudentsViewController: UITableViewController {
+class StudentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var menuButton:UIBarButtonItem!
 
     @IBOutlet weak var tblStudents: UITableView!
-
     
+    @IBOutlet var tableView: UITableView!
+
     let database = CKContainer.defaultContainer().publicCloudDatabase
 
     var arrStudents: Array<CKRecord> = []
@@ -28,6 +29,8 @@ class StudentsViewController: UITableViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
         fetchStudents()
     }
 
@@ -37,38 +40,42 @@ class StudentsViewController: UITableViewController {
     }
     
     func fetchStudents() {
-        
-        let predicate = NSPredicate(value: true)
-        
-        let query = CKQuery(recordType: "Student", predicate: predicate)
-        
-        database.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+        database.performQuery(
+            CKQuery(recordType: "Student", predicate: NSPredicate(value: true)),
+            inZoneWithID: nil) { (results, error) -> Void in
             if error != nil {
-                print(error)
-            }
-            else {
+                print("Error geting classes")
+            } else {
                 print(results)
                 
                 for result in results! {
                     self.arrStudents.append(result)
                 }
                 
-                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                    self.tblStudents.reloadData()
-                    self.tblStudents.hidden = false
-                })
+//                for result in results! {
+//                    self.arrNotes.append(result as! CKRecord)
+//                }
             }
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("idCellNote", forIndexPath: indexPath)
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.arrStudents.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
         let studentRecord: CKRecord = arrStudents[indexPath.row]
         
-        cell.textLabel?.text = (studentRecord.valueForKey("Name") as? String)! +
-            " : " +
-            (studentRecord.valueForKey("recordID.recordName") as? String)!
+        cell.textLabel?.text = studentRecord.valueForKey("Name") as? String
+
+        cell.detailTextLabel?.text = studentRecord.valueForKey("recordID.recordName") as? String
         
         return cell
     }
