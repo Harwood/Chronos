@@ -117,6 +117,7 @@ class StudentsTableViewController: UITableViewController {
         alert.addTextFieldWithConfigurationHandler({ (idField) -> Void in
             idField.placeholder = "123456789"
             idField.text = ""
+            idField.keyboardType = UIKeyboardType.NumberPad
         })
         
         //3. Grab the value from the text field, and print it when the user clicks OK.
