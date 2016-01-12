@@ -42,11 +42,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Scanner" id="KmL-n1-RHk" userLabel="Scanner">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="WXD-Qt-81H" userLabel="Menu Button"/>
-                        <barButtonItem key="rightBarButtonItem" title="Add Student" id="vxb-D1-VkN">
-                            <connections>
-                                <action selector="addStudentAction:" destination="HVW-1u-slv" id="jFq-0e-aHO"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="WXD-Qt-81H" id="04O-S2-Xrj"/>
@@ -210,7 +205,7 @@
             </objects>
             <point key="canvasLocation" x="1765" y="51"/>
         </scene>
-        <!--Students Table View Controller-->
+        <!--Students-->
         <scene sceneID="pbM-HV-FvX">
             <objects>
                 <tableViewController id="6X1-hN-zMF" customClass="StudentsTableViewController" customModule="Chronos" customModuleProvider="target" sceneMemberID="viewController">
@@ -242,16 +237,24 @@
                             <outlet property="delegate" destination="6X1-hN-zMF" id="hWJ-0D-neg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="x8I-lu-E91">
+                    <navigationItem key="navigationItem" title="Students" id="x8I-lu-E91">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="AgC-7F-o5r"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="j7t-fe-SdP" userLabel="Add Student">
+                            <connections>
+                                <action selector="addStudentAction:" destination="6X1-hN-zMF" id="WpH-EL-grJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="bFp-st-6gF">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <outlet property="menuButton" destination="AgC-7F-o5r" id="JWi-d0-eaq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TkC-vb-RK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2593" y="33"/>
+            <point key="canvasLocation" x="2548" y="51"/>
         </scene>
     </scenes>
     <resources>

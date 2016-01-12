@@ -57,17 +57,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             " Please sign into your iCloud account and restart this app")
         }
 
-        // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
-        // as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         
         do {
             // Get an instance of the AVCaptureDeviceInput class using the previous device object.
             let input = try AVCaptureDeviceInput(device: captureDevice)
 
-            // Initialize the captureSession object.
             captureSession = AVCaptureSession()
-            // Set the input device on the capture session.
             captureSession?.addInput(input)
 
             // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
@@ -123,88 +119,33 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         // Get the metadata object.
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
-        // Here we use filter method to check if the type of metadataObj is supported
-        // Instead of hardcoding the AVMetadataObjectTypeQRCode, we check if the type
-        // can be found in the array of supported bar codes.
         if supportedBarCodes.contains(metadataObj.type) {
-//        if metadataObj.type == AVMetadataObjectTypeQRCode {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObjectForMetadataObject(metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                
-                
-                //messageLabel.text = metadataObj.stringValue
                 getStudent(metadataObj.stringValue)
             }
         }
     }
-    
-    @IBAction func addStudentAction(sender: UIBarButtonItem) {
-        
-        //1. Create the alert controller.
-        var alert = UIAlertController(title: "Add Student", message: "Enter a text", preferredStyle: .Alert)
-        
-        //2. Add the text field. You can configure it however you need.
-        alert.addTextFieldWithConfigurationHandler({ (nameField) -> Void in
-            nameField.placeholder = "John Smith"
-            nameField.text = ""
-        })
-        
-        alert.addTextFieldWithConfigurationHandler({ (idField) -> Void in
-            idField.placeholder = "123456789"
-            idField.text = ""
-        })
-        
-        //3. Grab the value from the text field, and print it when the user clicks OK.
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
-            UIAlertAction in
-            
-            let studentName = (alert.textFields![0] as UITextField).text
-            let studentID = (alert.textFields![1] as UITextField).text
-            
-            let studentRecord = CKRecord(recordType: "Student", recordID: CKRecordID(recordName: studentID!))
-            studentRecord.setObject(studentName, forKey: "Name")
-            
-            self.database.saveRecord(studentRecord, completionHandler: { (record, error) -> Void in
-                if error != nil {
-                    print("Error geting classes")
-                }
-                
-                self.displayAlertWithTitle("Student Added", message: studentName! + " has been added to records.")
-                
-                self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID!)!)
-                
-            })
-            
-            NSLog("OK Pressed")
-        })
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
-            UIAlertAction in
-            NSLog("Cancel Pressed")
-        })
-        
-        // 4. Present the alert.
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
 
     func getStudent(studentID: String)  {
         if !self.foundIDs.contains(studentID) {
-            self.foundIDs.append(studentID)
-            
-            database.fetchRecordWithID(CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
-                guard let fetchedStudent = fetchedStudent else {
-                    print("ERROR IN GETTING STUDENT!")
-                    self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
-                    return
-                }
+            dispatch_async(dispatch_get_main_queue()) {
+                self.foundIDs.append(studentID)
                 
-                let studentName = fetchedStudent["Name"] as? String ?? "Unnamed Student"
-                
-                self.checkStudentIn(studentID, studentName: studentName)
-            })
+                self.database.fetchRecordWithID(CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
+                    guard let fetchedStudent = fetchedStudent else {
+                        print("ERROR IN GETTING STUDENT!")
+                        self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
+                        return
+                    }
+                    
+                    let studentName = fetchedStudent["Name"] as? String ?? "Unnamed Student"
+                    
+                    self.checkStudentIn(studentID, studentName: studentName)
+                })
+            }
         }
     }
     
