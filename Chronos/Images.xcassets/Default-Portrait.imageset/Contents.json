@@ -12,12 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
-    },
-    {
-      "idiom" : "universal",
       "filename" : "Default-Portrait-736h@3x.png",
-      "subtype" : "736h",
       "scale" : "3x"
     }
   ],
