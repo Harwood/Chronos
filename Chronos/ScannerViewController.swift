@@ -16,19 +16,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     var foundIDs = [String]()
     
-    let database = CKContainer.defaultContainer().publicCloudDatabase
+ //   let database = CKContainer.defaultContainer().publicCloudDatabase
+    
+    let db = DatabaseAPI.sharedInstance
     
     // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
-    
-    // Checking if user is signed into iCloud on the device
-    func isICloudAvailable() -> Bool{
-        if let _ = NSFileManager.defaultManager().ubiquityIdentityToken {
-            return true
-        } else {
-            return false
-        }
-    }
     
     func displayAlertWithTitle(title: String, message: String) {
         let controller = UIAlertController(title: title,
@@ -52,7 +45,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
 
         // If not signed into iCloud notify the user that they need to before using the app
-        if !isICloudAvailable() {
+        if !self.db.isICloudAvailable() {
             displayAlertWithTitle("iCloud", message: "iCloud is not available." +
             " Please sign into your iCloud account and restart this app")
         }
@@ -134,7 +127,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             dispatch_async(dispatch_get_main_queue()) {
                 self.foundIDs.append(studentID)
                 
-                self.database.fetchRecordWithID(CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
+                self.db.fetchPublicRecordWithID(CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
                     guard let fetchedStudent = fetchedStudent else {
                         print("ERROR IN GETTING STUDENT!")
                         self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
@@ -153,8 +146,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         let dayTimePeriodFormatter = NSDateFormatter()
         dayTimePeriodFormatter.dateFormat = "yyyyMMdd:HHmm"
         
-        
-        
         let recordName = studentID + " - " + dayTimePeriodFormatter.stringFromDate(NSDate())
         
         let attendanceRecord = CKRecord(recordType: "Attendance", recordID: CKRecordID(recordName: recordName))
@@ -162,8 +153,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             CKReference(recordID: CKRecordID(recordName: studentID),
                 action: CKReferenceAction.DeleteSelf), forKey: "Student")
         
-        
-        database.saveRecord(attendanceRecord, completionHandler: { (record, error) -> Void in
+        self.db.savePublicRecord(attendanceRecord, completionHandler: { (record, error) -> Void in
             if error != nil {
                 print("Error geting classes")
             }
