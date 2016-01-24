@@ -1,11 +1,3 @@
-//
-//  SettingsTableViewController.swift
-//  Chronos
-//
-//  Created by Jordan Harwood on 1/11/16.
-//  Copyright © 2016 AppCoda. All rights reserved.
-//
-
 import Foundation
 
 class SettingsTableViewController: UITableViewController {
