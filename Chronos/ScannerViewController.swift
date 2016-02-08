@@ -43,6 +43,11 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             menuButton.action = "revealToggle:"
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        // Register for Push Notifications
+        UIApplication.sharedApplication().registerUserNotificationSettings(
+            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
+        UIApplication.sharedApplication().registerForRemoteNotifications()
 
         // If not signed into iCloud notify the user that they need to before using the app
         if !self.db.isICloudAvailable() {
