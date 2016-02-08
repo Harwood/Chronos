@@ -85,6 +85,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17429DBA1C68135400EA39F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4D750141BD38E56009E1003 /* SWRevealViewController */,
+				17429DB81C680F1D00EA39F6 /* PushKit.framework */,
+				177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */,
+				17064A5D1C3E036B001344E7 /* CloudKit.framework */,
+				F4702A151A7F342F00E30A3C /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1790EB091C547447004D7C7E /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,10 +117,6 @@
 		F47029E71A7F27DB00E30A3C = {
 			isa = PBXGroup;
 			children = (
-				17429DB81C680F1D00EA39F6 /* PushKit.framework */,
-				177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */,
-				17064A5D1C3E036B001344E7 /* CloudKit.framework */,
-				F4702A151A7F342F00E30A3C /* MapKit.framework */,
 				F47029F21A7F27DB00E30A3C /* Chronos */,
 				F4702A081A7F27DC00E30A3C /* ChronosTests */,
 				F47029F11A7F27DB00E30A3C /* Products */,
@@ -127,13 +135,11 @@
 		F47029F21A7F27DB00E30A3C /* Chronos */ = {
 			isa = PBXGroup;
 			children = (
+				17429DBA1C68135400EA39F6 /* Frameworks */,
 				1790EB0C1C54745B004D7C7E /* Model */,
 				1790EB091C547447004D7C7E /* API */,
-				174325C91C3CC20B00DC4C09 /* Chronos.entitlements */,
-				F4D750141BD38E56009E1003 /* SWRevealViewController */,
 				F47029F51A7F27DB00E30A3C /* AppDelegate.swift */,
 				F47029F91A7F27DB00E30A3C /* Main.storyboard */,
-				F47029FC1A7F27DB00E30A3C /* Images.xcassets */,
 				F47029F31A7F27DB00E30A3C /* Supporting Files */,
 				F4702A171A7F351C00E30A3C /* MenuController.swift */,
 				176EC7DD1C3B77C90026957B /* ScannerViewController.swift */,
@@ -147,6 +153,8 @@
 		F47029F31A7F27DB00E30A3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F47029FC1A7F27DB00E30A3C /* Images.xcassets */,
+				174325C91C3CC20B00DC4C09 /* Chronos.entitlements */,
 				F47029F41A7F27DB00E30A3C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -416,7 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Chronos/Chronos.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -437,7 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Chronos/Chronos.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

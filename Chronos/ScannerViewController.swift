@@ -20,6 +20,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     let db = DatabaseAPI.sharedInstance
     
+    let UISharedApplication = UIApplication.sharedApplication()
+    
     // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
     
@@ -35,6 +37,18 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         presentViewController(controller, animated: true, completion: nil)
     }
     
+    func sendLocalNotification(withAlert alertMsg:String, onDate alertDate:NSDate?=NSDate()) {
+        let notification = UILocalNotification()
+        notification.alertBody = alertMsg // text that will be displayed in the notification
+        //notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+        notification.fireDate = alertDate
+        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+        //notification.userInfo = ["UUID": item.UUID, ] // assign a unique identifier to the notification so that we can retrieve it later
+        //notification.category = "TODO_CATEGORY"
+        
+        UISharedApplication.scheduleLocalNotification(notification)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,9 +59,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
         
         // Register for Push Notifications
-        UIApplication.sharedApplication().registerUserNotificationSettings(
+        UISharedApplication.registerUserNotificationSettings(
             UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
-        UIApplication.sharedApplication().registerForRemoteNotifications()
+        UISharedApplication.registerForRemoteNotifications()
 
         // If not signed into iCloud notify the user that they need to before using the app
         if !self.db.isICloudAvailable() {
