@@ -12,6 +12,10 @@
 		172D0FFB1C44D7DF00FE7EA7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172D0FFA1C44D7DF00FE7EA7 /* SettingsTableViewController.swift */; };
 		176EC7DE1C3B77C90026957B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176EC7DD1C3B77C90026957B /* ScannerViewController.swift */; };
 		177DBCBE1C42DB09007ED19E /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */; };
+		1790EB0B1C547457004D7C7E /* ScannerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790EB0A1C547457004D7C7E /* ScannerAPI.swift */; };
+		1790EB0E1C547467004D7C7E /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790EB0D1C547467004D7C7E /* Student.swift */; };
+		1790EB101C54751A004D7C7E /* DatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790EB0F1C54751A004D7C7E /* DatabaseAPI.swift */; };
+		1790EB121C547D1F004D7C7E /* StudentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790EB111C547D1F004D7C7E /* StudentDetailViewController.swift */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
 		F47029FB1A7F27DB00E30A3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47029F91A7F27DB00E30A3C /* Main.storyboard */; };
 		F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47029FC1A7F27DB00E30A3C /* Images.xcassets */; };
@@ -39,6 +43,10 @@
 		1760B6171C3B884600527940 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		176EC7DD1C3B77C90026957B /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		1790EB0A1C547457004D7C7E /* ScannerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerAPI.swift; sourceTree = "<group>"; };
+		1790EB0D1C547467004D7C7E /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		1790EB0F1C54751A004D7C7E /* DatabaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAPI.swift; sourceTree = "<group>"; };
+		1790EB111C547D1F004D7C7E /* StudentDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentDetailViewController.swift; sourceTree = "<group>"; };
 		F47029F01A7F27DB00E30A3C /* Chronos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chronos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47029F41A7F27DB00E30A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47029F51A7F27DB00E30A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +82,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1790EB091C547447004D7C7E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1790EB0A1C547457004D7C7E /* ScannerAPI.swift */,
+				1790EB0F1C54751A004D7C7E /* DatabaseAPI.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		1790EB0C1C54745B004D7C7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1790EB0D1C547467004D7C7E /* Student.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		F47029E71A7F27DB00E30A3C = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +123,8 @@
 		F47029F21A7F27DB00E30A3C /* Chronos */ = {
 			isa = PBXGroup;
 			children = (
+				1790EB0C1C54745B004D7C7E /* Model */,
+				1790EB091C547447004D7C7E /* API */,
 				174325C91C3CC20B00DC4C09 /* Chronos.entitlements */,
 				F4D750141BD38E56009E1003 /* SWRevealViewController */,
 				F47029F51A7F27DB00E30A3C /* AppDelegate.swift */,
@@ -108,6 +135,7 @@
 				176EC7DD1C3B77C90026957B /* ScannerViewController.swift */,
 				172D0FFA1C44D7DF00FE7EA7 /* SettingsTableViewController.swift */,
 				171C1A551C4242550036A25D /* StudentsTableViewController.swift */,
+				1790EB111C547D1F004D7C7E /* StudentDetailViewController.swift */,
 			);
 			path = Chronos;
 			sourceTree = "<group>";
@@ -257,11 +285,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4D750181BD38F0C009E1003 /* SWRevealViewController.m in Sources */,
+				1790EB0B1C547457004D7C7E /* ScannerAPI.swift in Sources */,
 				F4702A181A7F351C00E30A3C /* MenuController.swift in Sources */,
 				F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */,
 				171C1A561C4242550036A25D /* StudentsTableViewController.swift in Sources */,
+				1790EB101C54751A004D7C7E /* DatabaseAPI.swift in Sources */,
 				176EC7DE1C3B77C90026957B /* ScannerViewController.swift in Sources */,
+				1790EB121C547D1F004D7C7E /* StudentDetailViewController.swift in Sources */,
 				172D0FFB1C44D7DF00FE7EA7 /* SettingsTableViewController.swift in Sources */,
+				1790EB0E1C547467004D7C7E /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
