@@ -1,6 +1,9 @@
 import Foundation
 import CloudKit
 
+/**
+ Handle all database connections with CloudKit
+*/
 class DatabaseAPI {
     static let sharedInstance = DatabaseAPI()
     
@@ -9,9 +12,12 @@ class DatabaseAPI {
     
     private var foundIDs = [String]()
     
-    internal var students:[(name: String, id: String)] = []
+    internal var students:[(name: String, id: String, ckRecord: CKRecord)] = []
     internal var studentAttendance:[String] = []
-    
+
+    /**
+     Constructor
+    */
     private init() {} //This prevents others from using the default '()' initializer for this class.
     
     /** 
@@ -26,8 +32,13 @@ class DatabaseAPI {
             return false
         }
     }
-    
+
+    /**
+     Updates local student list from CloudKit
+    */
     func updateStudentList(list:[CKRecord]?) {
+        self.students.removeAll()
+        
         for item in list! {
             let student = item as CKRecord
             
@@ -35,11 +46,16 @@ class DatabaseAPI {
             
             let id = student.recordID.recordName
             
-            self.students.append((name: name as! String, id: id))
+            self.students.append((name: name as! String, id: id, ckRecord: student))
         }
     }
-    
+
+    /**
+     Updates local student attendance list from CloudKit
+    */
     func updateStudentAttendanceList(list:[CKRecord]?) {
+        self.studentAttendance.removeAll()
+
         for item in list! {
             let record = item as CKRecord
             

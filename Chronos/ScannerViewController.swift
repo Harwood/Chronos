@@ -15,8 +15,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var qrCodeFrameView:UIView?
     
     var foundIDs = [String]()
-    
- //   let database = CKContainer.defaultContainer().publicCloudDatabase
+
+    // let database = CKContainer.defaultContainer().publicCloudDatabase
     
     let db = DatabaseAPI.sharedInstance
     
@@ -54,7 +54,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
@@ -160,7 +160,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             }
         }
     }
-    
+
+    /**
+     Adds entry of attendance to CloudKit database
+    */
     func checkStudentIn(studentID:String, studentName:String) {
         let dayTimePeriodFormatter = NSDateFormatter()
         dayTimePeriodFormatter.dateFormat = "yyyyMMdd:HHmm"

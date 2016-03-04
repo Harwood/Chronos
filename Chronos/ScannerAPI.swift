@@ -13,8 +13,6 @@ final class ScannerAPI {
     
     // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
-    
-    
-    private init() {} //This prevents others from using the default '()' initializer for this class.
 
+    private init() {} //This prevents others from using the default '()' initializer for this class.
 }

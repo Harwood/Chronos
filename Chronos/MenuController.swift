@@ -1,5 +1,8 @@
 import UIKit
 
+/**
+ Handles left side menu
+*/
 class MenuController: UITableViewController {
 
     override func viewDidLoad() {

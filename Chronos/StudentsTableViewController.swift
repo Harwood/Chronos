@@ -5,16 +5,6 @@ class StudentsTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    //    var students = ["Apple", "Apricot", "Banana", "Blueberry", "Cantaloupe", "Cherry",
-    //        "Clementine", "Coconut", "Cranberry", "Fig", "Grape", "Grapefruit",
-    //    var "Kiwi fruit", "Lemon", "Lime", "Lychee", "Mandarine", "Mango",
-    //        "Melon", "Nectarine", "Olive", "Orange", "Papaya", "Peach",
-    //        "Pear", "Pineapple", "Raspberry", "Strawberry"]
-    
- //   var students:[(name: String, id: String)] = []
-    
-//    let database:CKDatabase = CKContainer.defaultContainer().publicCloudDatabase
-    
     let db = DatabaseAPI.sharedInstance
     
     func refresh(sender:AnyObject) {
@@ -43,13 +33,13 @@ class StudentsTableViewController: UITableViewController {
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
         self.tableView.editing = false
         
-        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(StudentsTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         dispatch_async(dispatch_get_main_queue()) {
             self.fetchStudents()
@@ -63,7 +53,7 @@ class StudentsTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         let viewController = segue.destinationViewController as! StudentDetailViewController
-        viewController.studentID = self.db.students[(tableView.indexPathForSelectedRow?.row)!].id
+        viewController.studentRowNumber = tableView.indexPathForSelectedRow!.row
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -93,6 +83,7 @@ class StudentsTableViewController: UITableViewController {
                 }
         }
     }
+
     
     @IBAction func addStudentAction(sender: UIBarButtonItem) {
         
