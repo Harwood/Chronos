@@ -15,20 +15,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var qrCodeFrameView:UIView?
     
     var foundIDs = [String]()
+
+    // let database = CKContainer.defaultContainer().publicCloudDatabase
     
-    let database = CKContainer.defaultContainer().publicCloudDatabase
+    let db = DatabaseAPI.sharedInstance
+    
+    let UISharedApplication = UIApplication.sharedApplication()
     
     // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
-    
-    // Checking if user is signed into iCloud on the device
-    func isICloudAvailable() -> Bool{
-        if let _ = NSFileManager.defaultManager().ubiquityIdentityToken {
-            return true
-        } else {
-            return false
-        }
-    }
     
     func displayAlertWithTitle(title: String, message: String) {
         let controller = UIAlertController(title: title,
@@ -42,6 +37,18 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         presentViewController(controller, animated: true, completion: nil)
     }
     
+    func sendLocalNotification(withAlert alertMsg:String, onDate alertDate:NSDate?=NSDate()) {
+        let notification = UILocalNotification()
+        notification.alertBody = alertMsg // text that will be displayed in the notification
+        //notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+        notification.fireDate = alertDate
+        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+        //notification.userInfo = ["UUID": item.UUID, ] // assign a unique identifier to the notification so that we can retrieve it later
+        //notification.category = "TODO_CATEGORY"
+        
+        UISharedApplication.scheduleLocalNotification(notification)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,9 +57,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             menuButton.action = "revealToggle:"
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        // Register for Push Notifications
+        UISharedApplication.registerUserNotificationSettings(
+            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
+        UISharedApplication.registerForRemoteNotifications()
 
         // If not signed into iCloud notify the user that they need to before using the app
-        if !isICloudAvailable() {
+        if !self.db.isICloudAvailable() {
             displayAlertWithTitle("iCloud", message: "iCloud is not available." +
             " Please sign into your iCloud account and restart this app")
         }
@@ -134,7 +146,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             dispatch_async(dispatch_get_main_queue()) {
                 self.foundIDs.append(studentID)
                 
-                self.database.fetchRecordWithID(CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
+                self.db.fetchPublicRecordWithID(CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
                     guard let fetchedStudent = fetchedStudent else {
                         print("ERROR IN GETTING STUDENT!")
                         self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
@@ -148,12 +160,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             }
         }
     }
-    
+
+    /**
+     Adds entry of attendance to CloudKit database
+    */
     func checkStudentIn(studentID:String, studentName:String) {
         let dayTimePeriodFormatter = NSDateFormatter()
         dayTimePeriodFormatter.dateFormat = "yyyyMMdd:HHmm"
-        
-        
         
         let recordName = studentID + " - " + dayTimePeriodFormatter.stringFromDate(NSDate())
         
@@ -162,8 +175,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             CKReference(recordID: CKRecordID(recordName: studentID),
                 action: CKReferenceAction.DeleteSelf), forKey: "Student")
         
-        
-        database.saveRecord(attendanceRecord, completionHandler: { (record, error) -> Void in
+        self.db.savePublicRecord(attendanceRecord, completionHandler: { (record, error) -> Void in
             if error != nil {
                 print("Error geting classes")
             }

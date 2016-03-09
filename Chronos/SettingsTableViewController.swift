@@ -1,17 +1,15 @@
-//
-//  SettingsTableViewController.swift
-//  Chronos
-//
-//  Created by Jordan Harwood on 1/11/16.
-//  Copyright © 2016 AppCoda. All rights reserved.
-//
-
 import Foundation
 
+/**
+ Handles settings menu
+*/
 class SettingsTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
+
+    /**
+     Handles view loading
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         

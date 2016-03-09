@@ -5,43 +5,26 @@ class StudentsTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-//    var students = ["Apple", "Apricot", "Banana", "Blueberry", "Cantaloupe", "Cherry",
-//        "Clementine", "Coconut", "Cranberry", "Fig", "Grape", "Grapefruit",
-//        "Kiwi fruit", "Lemon", "Lime", "Lychee", "Mandarine", "Mango",
-//        "Melon", "Nectarine", "Olive", "Orange", "Papaya", "Peach",
-//        "Pear", "Pineapple", "Raspberry", "Strawberry"]
-    
-    var students:[(name: String, id: String)] = []
-    
-    let database:CKDatabase = CKContainer.defaultContainer().publicCloudDatabase
+    let db = DatabaseAPI.sharedInstance
     
     func refresh(sender:AnyObject) {
-        database.performQuery(
+        self.db.performPublicQuery(
             CKQuery(recordType: "Student", predicate: NSPredicate(value: true)), inZoneWithID: nil) { results, error in
-            
-            if error != nil {
-                print("Error geting classes")
-            } else {
-                if results!.count > 0 {
-                    print(results)
-                    
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.students = []
-                        for result in results! {
-                            let student = result as CKRecord
-                            
-                            let name = student.objectForKey("Name")
-                            
-                            let id = student.recordID.recordName
-                            
-                            self.students.append((name: name as! String, id: id))
-                        }
+                
+                if error != nil {
+                    print("Error geting classes")
+                } else {
+                    if results!.count > 0 {
+                        print(results!)
                         
-                        self.tableView?.reloadData()
-                        self.refreshControl?.endRefreshing()
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.db.updateStudentList(results)
+                            
+                            self.tableView?.reloadData()
+                            self.refreshControl?.endRefreshing()
+                        }
                     }
                 }
-            }
         }
     }
     
@@ -58,50 +41,49 @@ class StudentsTableViewController: UITableViewController {
         
         self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 
-        self.fetchStudents()
+        dispatch_async(dispatch_get_main_queue()) {
+            self.fetchStudents()
+        }
     }
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.students.count
+        return self.db.students.count
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        let viewController = segue.destinationViewController as! StudentDetailViewController
+        viewController.studentRowNumber = tableView.indexPathForSelectedRow!.row
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("StudentCell", forIndexPath: indexPath) 
+        let cell = tableView.dequeueReusableCellWithIdentifier("StudentCell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = self.students[indexPath.row].name
+        cell.textLabel?.text = self.db.students[indexPath.row].name
         
         return cell
     }
-
+    
     func fetchStudents() {
-        database.performQuery(
+        self.db.performPublicQuery(
             CKQuery(recordType: "Student", predicate: NSPredicate(value: true)),
             inZoneWithID: nil) { results, error in
-            if error != nil {
-                print("Error geting classes")
-            } else {
-                if results!.count > 0 {
-                    print(results)
-                    
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.students = []
-                        for result in results! {
-                            let student = result as CKRecord
-                            
-                            let name = student.objectForKey("Name")
-                            
-                            let id = student.recordID.recordName
-                            
-                            self.students.append((name: name as! String, id: id))
-                        }
+                if error != nil {
+                    print("Error geting classes")
+                } else {
+                    if results!.count > 0 {
+                        print(results)
                         
-                        self.tableView?.reloadData()
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.db.updateStudentList(results)
+                            
+                            self.tableView?.reloadData()
+                        }
                     }
                 }
-            }
         }
     }
+
     
     @IBAction func addStudentAction(sender: UIBarButtonItem) {
         
@@ -131,7 +113,7 @@ class StudentsTableViewController: UITableViewController {
             studentRecord.setObject(studentName, forKey: "Name")
             
             dispatch_async(dispatch_get_main_queue()) {
-                self.database.saveRecord(studentRecord, completionHandler: { (record, error) -> Void in
+                self.db.savePublicRecord(studentRecord, completionHandler: { (record, error) -> Void in
                     if error != nil {
                         print("Error geting classes")
                     }
