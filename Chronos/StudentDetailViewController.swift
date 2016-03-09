@@ -18,7 +18,7 @@ class StudentDetailViewController: UITableViewController {
         
         self.tableView.editing = false
         
-        self.refreshControl?.addTarget(self, action: #selector(StudentDetailViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 
         self.studentId = self.db.students[self.studentRowNumber!].id
         self.studentRecord = self.db.students[self.studentRowNumber!].ckRecord

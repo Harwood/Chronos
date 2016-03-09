@@ -33,14 +33,14 @@ class StudentsTableViewController: UITableViewController {
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            menuButton.action = "revealToggle:"
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
         self.tableView.editing = false
         
-        self.refreshControl?.addTarget(self, action: #selector(StudentsTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        
+        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+
         dispatch_async(dispatch_get_main_queue()) {
             self.fetchStudents()
         }
