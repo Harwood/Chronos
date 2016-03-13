@@ -1,5 +1,6 @@
 import Foundation
 import AVFoundation
+import SWRevealViewController
 
 /**
  Singleton handler for the barcode scanner
