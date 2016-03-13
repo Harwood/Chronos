@@ -1,4 +1,5 @@
 import Foundation
+import SWRevealViewController
 
 /**
  Handles settings menu
