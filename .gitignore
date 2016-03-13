@@ -61,3 +61,8 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
+
+# CocoaPods
+Pods/
+Podfile.lock
+Chronos.xcworkspace/contents.xcworkspacedata
