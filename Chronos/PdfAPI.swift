@@ -21,7 +21,7 @@ final class PdfAPI {
         return self.save(pdfData: data, toFile: filename)
     }
 
-    func loadPDF(withName filename:String) -> NSURLRequest {
+    func generateURLRequestForPDF(withName filename:String) -> NSURLRequest {
         let filePath = "\(self.documentsPath)/\(filename).pdf"
         let url = NSURL(fileURLWithPath: filePath)
         let urlRequest = NSURLRequest(URL: url)
