@@ -51,10 +51,10 @@ class StudentDetailViewController: UITableViewController {
             CKQuery(recordType: "Attendance", predicate: predicate),
             inZoneWithID: nil) { results, error in
                 if error != nil {
-                    print("Error geting classes")
+                    print("Error geting classes", terminator: "")
                 } else {
                     if results!.count > 0 {
-                        print(results)
+                        print(results, terminator: "")
                         
                         dispatch_async(dispatch_get_main_queue()) {
                             self.db.updateStudentAttendanceList(results)
