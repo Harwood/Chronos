@@ -65,8 +65,9 @@ class StudentDetailViewController: UITableViewController {
                 }
         }
     }
-    
-    
+
+    @IBAction func reportButtonAction(sender: UIBarButtonItem) {
+    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.db.studentAttendance.count
