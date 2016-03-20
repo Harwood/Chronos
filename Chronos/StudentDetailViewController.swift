@@ -1,5 +1,6 @@
 import UIKit
 import CloudKit
+import SVWebViewController
 
 class StudentDetailViewController: UITableViewController {
 
@@ -7,14 +8,18 @@ class StudentDetailViewController: UITableViewController {
     
     var studentRowNumber:Int?
     var studentId:String?
+    var studentName:String?
     var studentRecord:CKRecord?
     
     let db = DatabaseAPI.sharedInstance
+    let report = ReportAPI.sharedInstance
     
     override func viewDidLoad() -> Void {
         super.viewDidLoad()
 
-        self.title = self.db.students[self.studentRowNumber!].name
+        self.studentName = self.db.students[self.studentRowNumber!].name
+
+        self.title = self.studentName
         
         self.tableView.editing = false
         
@@ -67,6 +72,14 @@ class StudentDetailViewController: UITableViewController {
     }
 
     @IBAction func reportButtonAction(sender: UIBarButtonItem) {
+        let filename = "\(self.studentId!)_report"
+
+        self.report.createReport(forStrudent: self.studentName!, withID: self.studentId!, withFilename: filename)
+
+        let webViewController:SVModalWebViewController = SVModalWebViewController(URLRequest: self.report.generateURLRequestForReport(withName: filename))
+        webViewController.modalPresentationStyle = UIModalPresentationStyle.PageSheet
+
+        presentViewController(webViewController, animated: true, completion: nil)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

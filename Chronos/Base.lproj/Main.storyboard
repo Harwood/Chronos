@@ -284,7 +284,7 @@
             </objects>
             <point key="canvasLocation" x="2502" y="-277"/>
         </scene>
-        <!--Title-->
+        <!--Student Detail View Controller-->
         <scene sceneID="7HP-Ki-WOa">
             <objects>
                 <tableViewController id="fNe-Ty-LYJ" customClass="StudentDetailViewController" customModule="Chronos" customModuleProvider="target" sceneMemberID="viewController">
@@ -308,7 +308,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="hUp-d7-xKT">
+                    <navigationItem key="navigationItem" id="hUp-d7-xKT">
                         <barButtonItem key="rightBarButtonItem" title="Report" id="hIP-kj-gLo">
                             <connections>
                                 <action selector="reportButtonAction:" destination="fNe-Ty-LYJ" id="KIe-62-xS1"/>
