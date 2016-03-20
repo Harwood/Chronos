@@ -8,7 +8,8 @@ use_frameworks!
 # inhibit_all_warnings!
 
 target 'Chronos' do
-    pod 'SWRevealViewController', '~> 2.3', :inhibit_warnings => true
+    pod 'SWRevealViewController', :head, :inhibit_warnings => true
+    pod 'SVWebViewController', :head, :inhibit_warnings => true
 end
 
 target 'ChronosTests' do
