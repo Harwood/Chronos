@@ -94,10 +94,12 @@
 		17429DBA1C68135400EA39F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				17429DB81C680F1D00EA39F6 /* PushKit.framework */,
-				177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */,
+				56AA17FB55879A41EC249C8B /* Pods_Chronos.framework */,
 				17064A5D1C3E036B001344E7 /* CloudKit.framework */,
+				177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */,
 				F4702A151A7F342F00E30A3C /* MapKit.framework */,
+				17429DB81C680F1D00EA39F6 /* PushKit.framework */,
+				17350C241C9F2E4D00F27C88 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,15 +122,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		68798C2DA657C86B1C899052 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				17350C241C9F2E4D00F27C88 /* UIKit.framework */,
-				56AA17FB55879A41EC249C8B /* Pods_Chronos.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9C255A41F7AA6D223D0648CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +138,6 @@
 				F4702A081A7F27DC00E30A3C /* ChronosTests */,
 				F47029F11A7F27DB00E30A3C /* Products */,
 				9C255A41F7AA6D223D0648CF /* Pods */,
-				68798C2DA657C86B1C899052 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
