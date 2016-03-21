@@ -1,8 +1,9 @@
 import UIKit
 import CloudKit
+import MessageUI
 import SVWebViewController
 
-class StudentDetailViewController: UITableViewController {
+class StudentDetailViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
     private let attendance:[String] = []
     
@@ -75,14 +76,43 @@ class StudentDetailViewController: UITableViewController {
         let filename = "\(self.studentId!)_report"
 
         self.report.createReport(forStrudent: self.studentName!, withID: self.studentId!, withFilename: filename)
-
+/*
         let webViewController:SVModalWebViewController = SVModalWebViewController(URLRequest: self.report.generateURLRequestForReport(withName: filename))
         webViewController.modalPresentationStyle = UIModalPresentationStyle.PageSheet
 
         presentViewController(webViewController, animated: true, completion: nil)
+*/
+
+        if (MFMailComposeViewController.canSendMail()) {
+            let mailComposer = MFMailComposeViewController()
+            mailComposer.mailComposeDelegate = self
+
+            mailComposer.setSubject("Student Attendance Report : \(self.studentName!) (\(self.studentId!))")
+            mailComposer.setMessageBody("", isHTML: false)
+
+
+            let filePath = self.report.getDocumentPath(withName: filename).stringByAppendingPathComponent(filename+".html")
+            if let fileData = NSData(contentsOfFile: filePath) {
+                    mailComposer.addAttachmentData(fileData, mimeType: "text/html", fileName: "Student Attendance - \(self.studentId)")
+
+            }
+
+            self.presentViewController(mailComposer, animated: true, completion: nil)
+        }
+    }
+
+    internal func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.db.studentAttendance.count
+    }
+}
+
+extension String {
+    func stringByAppendingPathComponent(path: String) -> String {
+        let nsSt = self as NSString
+        return nsSt.stringByAppendingPathComponent(path)
     }
 }

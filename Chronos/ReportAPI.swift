@@ -8,7 +8,7 @@ Handles the generation of PDF files
 final class ReportAPI {
     static let sharedInstance = ReportAPI()
 
-    private let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    private let documentsPath:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
 
     let db = DatabaseAPI.sharedInstance
 
@@ -27,6 +27,16 @@ final class ReportAPI {
             print("failed to save html", terminator: "")
         }
 
+        print(documentsPath)
+
+    }
+
+    func getReportData(withName filename:String) -> NSData {
+        return NSData(contentsOfURL: NSURL(fileURLWithPath: self.documentsPath+"\(filename).html"))!
+    }
+
+    func getDocumentPath(withName filename:String) -> String {
+        return self.documentsPath
     }
 
     private func generateReportHTML(forStrudent studentName:String, withID studentID:String) {
@@ -56,10 +66,10 @@ final class ReportAPI {
     }
 
     private func generateCheckinTable() -> String {
-        var tmpHtml = "<table>"
+        var tmpHtml = "<table><tr><th>Student Attendance Records:</th></tr>"
 
         for checkin in self.db.studentAttendance {
-            tmpHtml.appendContentsOf("<tr>\(checkin)</tr>")
+            tmpHtml.appendContentsOf("<tr><td>\(checkin)</td></tr>")
         }
 
         tmpHtml.appendContentsOf("</table>")
