@@ -109,7 +109,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             
         } catch {
             // If any error occurs, simply print it out and don't continue any more.
-            print(error)
+            print(error, terminator: "")
             return
         }
         
@@ -148,7 +148,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 
                 self.db.fetchPublicRecordWithID(CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
                     guard let fetchedStudent = fetchedStudent else {
-                        print("ERROR IN GETTING STUDENT!")
+                        print("ERROR IN GETTING STUDENT!", terminator: "")
                         self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
                         return
                     }
@@ -177,7 +177,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         self.db.savePublicRecord(attendanceRecord, completionHandler: { (record, error) -> Void in
             if error != nil {
-                print("Error geting classes")
+                print("Error geting classes", terminator: "")
             }
             
             self.displayAlertWithTitle("Student Checked In", message: studentName + " has been checked in.")

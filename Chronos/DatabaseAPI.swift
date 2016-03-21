@@ -85,7 +85,7 @@ class DatabaseAPI {
                 
                 self.publicDatabase.fetchRecordWithID(CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
                     guard let fetchedStudent = fetchedStudent else {
-                        print("ERROR IN GETTING STUDENT!")
+                        print("ERROR IN GETTING STUDENT!", terminator: "")
                         self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
                         return
                     }
@@ -139,7 +139,7 @@ class DatabaseAPI {
         
         self.publicDatabase.saveRecord(attendanceRecord, completionHandler: { (record, error) -> Void in
             if error != nil {
-                print("Error geting classes")
+                print("Error geting classes", terminator: "")
             }
             
             self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)

@@ -307,6 +307,15 @@
                             <outlet property="delegate" destination="fNe-Ty-LYJ" id="Dq0-xd-oPT"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="hUp-d7-xKT">
+                        <barButtonItem key="rightBarButtonItem" title="Report" id="hIP-kj-gLo">
+                            <connections>
+                                <action selector="reportButtonAction:" destination="fNe-Ty-LYJ" id="KIe-62-xS1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="JPH-gJ-iSl">
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
@@ -454,6 +463,6 @@
         <image name="students" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="foL-zu-uHU"/>
+        <segue reference="tWZ-CD-OTO"/>
     </inferredMetricsTieBreakers>
 </document>

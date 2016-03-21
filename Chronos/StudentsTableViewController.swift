@@ -13,10 +13,10 @@ class StudentsTableViewController: UITableViewController {
             CKQuery(recordType: "Student", predicate: NSPredicate(value: true)), inZoneWithID: nil) { results, error in
                 
                 if error != nil {
-                    print("Error geting classes")
+                    print("Error geting classes", terminator: "")
                 } else {
                     if results!.count > 0 {
-                        print(results!)
+                        print(results!, terminator: "")
                         
                         dispatch_async(dispatch_get_main_queue()) {
                             self.db.updateStudentList(results)
@@ -70,10 +70,10 @@ class StudentsTableViewController: UITableViewController {
             CKQuery(recordType: "Student", predicate: NSPredicate(value: true)),
             inZoneWithID: nil) { results, error in
                 if error != nil {
-                    print("Error geting classes")
+                    print("Error geting classes", terminator: "")
                 } else {
                     if results!.count > 0 {
-                        print(results)
+                        print(results, terminator: "")
                         
                         dispatch_async(dispatch_get_main_queue()) {
                             self.db.updateStudentList(results)
@@ -116,7 +116,7 @@ class StudentsTableViewController: UITableViewController {
             dispatch_async(dispatch_get_main_queue()) {
                 self.db.savePublicRecord(studentRecord, completionHandler: { (record, error) -> Void in
                     if error != nil {
-                        print("Error geting classes")
+                        print("Error geting classes", terminator: "")
                     }
                     
                     self.fetchStudents()

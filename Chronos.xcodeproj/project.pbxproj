@@ -10,6 +10,8 @@
 		17064A5E1C3E036B001344E7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17064A5D1C3E036B001344E7 /* CloudKit.framework */; };
 		171C1A561C4242550036A25D /* StudentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C1A551C4242550036A25D /* StudentsTableViewController.swift */; };
 		172D0FFB1C44D7DF00FE7EA7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172D0FFA1C44D7DF00FE7EA7 /* SettingsTableViewController.swift */; };
+		17350C231C9F2D6000F27C88 /* ReportAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17350C221C9F2D6000F27C88 /* ReportAPI.swift */; };
+		17350C251C9F2E4D00F27C88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17350C241C9F2E4D00F27C88 /* UIKit.framework */; };
 		17429DB91C680F1D00EA39F6 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17429DB81C680F1D00EA39F6 /* PushKit.framework */; };
 		176EC7DE1C3B77C90026957B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176EC7DD1C3B77C90026957B /* ScannerViewController.swift */; };
 		177DBCBE1C42DB09007ED19E /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */; };
@@ -41,6 +43,8 @@
 		17064A5D1C3E036B001344E7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		171C1A551C4242550036A25D /* StudentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsTableViewController.swift; sourceTree = "<group>"; };
 		172D0FFA1C44D7DF00FE7EA7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		17350C221C9F2D6000F27C88 /* ReportAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportAPI.swift; sourceTree = "<group>"; };
+		17350C241C9F2E4D00F27C88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17429DB81C680F1D00EA39F6 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		174325C91C3CC20B00DC4C09 /* Chronos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Chronos.entitlements; sourceTree = "<group>"; };
 		176EC7DD1C3B77C90026957B /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17350C251C9F2E4D00F27C88 /* UIKit.framework in Frameworks */,
 				17429DB91C680F1D00EA39F6 /* PushKit.framework in Frameworks */,
 				177DBCBE1C42DB09007ED19E /* ExternalAccessory.framework in Frameworks */,
 				F4702A161A7F342F00E30A3C /* MapKit.framework in Frameworks */,
@@ -89,10 +94,12 @@
 		17429DBA1C68135400EA39F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				17429DB81C680F1D00EA39F6 /* PushKit.framework */,
-				177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */,
+				56AA17FB55879A41EC249C8B /* Pods_Chronos.framework */,
 				17064A5D1C3E036B001344E7 /* CloudKit.framework */,
+				177DBCBD1C42DB09007ED19E /* ExternalAccessory.framework */,
 				F4702A151A7F342F00E30A3C /* MapKit.framework */,
+				17429DB81C680F1D00EA39F6 /* PushKit.framework */,
+				17350C241C9F2E4D00F27C88 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -102,6 +109,7 @@
 			children = (
 				1790EB0A1C547457004D7C7E /* ScannerAPI.swift */,
 				1790EB0F1C54751A004D7C7E /* DatabaseAPI.swift */,
+				17350C221C9F2D6000F27C88 /* ReportAPI.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -112,14 +120,6 @@
 				1790EB0D1C547467004D7C7E /* Student.swift */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		68798C2DA657C86B1C899052 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				56AA17FB55879A41EC249C8B /* Pods_Chronos.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9C255A41F7AA6D223D0648CF /* Pods */ = {
@@ -138,7 +138,6 @@
 				F4702A081A7F27DC00E30A3C /* ChronosTests */,
 				F47029F11A7F27DB00E30A3C /* Products */,
 				9C255A41F7AA6D223D0648CF /* Pods */,
-				68798C2DA657C86B1C899052 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -362,6 +361,7 @@
 				1790EB0B1C547457004D7C7E /* ScannerAPI.swift in Sources */,
 				F4702A181A7F351C00E30A3C /* MenuController.swift in Sources */,
 				F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */,
+				17350C231C9F2D6000F27C88 /* ReportAPI.swift in Sources */,
 				171C1A561C4242550036A25D /* StudentsTableViewController.swift in Sources */,
 				1790EB101C54751A004D7C7E /* DatabaseAPI.swift in Sources */,
 				176EC7DE1C3B77C90026957B /* ScannerViewController.swift in Sources */,
