@@ -8,8 +8,8 @@ use_frameworks!
 # inhibit_all_warnings!
 
 target 'Chronos' do
-    pod 'SWRevealViewController', :head, :inhibit_warnings => true
-    pod 'SVWebViewController', :head, :inhibit_warnings => true
+    pod 'SWRevealViewController', :git => 'https://github.com/John-Lluch/SWRevealViewController.git', :inhibit_warnings => true
+    pod 'SVWebViewController', :git => 'https://github.com/TransitApp/SVWebViewController.git', :inhibit_warnings => true
 end
 
 target 'ChronosTests' do
