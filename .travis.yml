@@ -1,6 +1,5 @@
 language: objective-c
-
-script:
-    - xctool -workspace Chronos.xcworkspace -scheme Chronos build test -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+osx_image: xcode7.2
+script: ./test.sh
 after_success:
     - bash <(curl -s https://codecov.io/bash)
