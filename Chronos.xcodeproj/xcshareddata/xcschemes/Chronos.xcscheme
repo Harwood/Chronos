@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1BC5D22824369A0A930888219F416963"
+               BlueprintIdentifier = "0F16466381A9388F50FC6C149BA89E9E"
                BuildableName = "SWRevealViewController.framework"
                BlueprintName = "SWRevealViewController"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE89955312E749A9753CF158D22819F8"
+               BlueprintIdentifier = "CB10E81C355F36ED23C992E0711C947A"
                BuildableName = "Pods_Chronos.framework"
                BlueprintName = "Pods-Chronos"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
