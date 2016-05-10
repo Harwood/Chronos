@@ -54,7 +54,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(revealViewController().revealToggle)
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
