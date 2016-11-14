@@ -38,15 +38,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func sendLocalNotification(withAlert alertMsg:String, onDate alertDate:NSDate?=NSDate()) {
-        let notification = UILocalNotification()
-        notification.alertBody = alertMsg // text that will be displayed in the notification
-        //notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-        notification.fireDate = alertDate
-        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
-        //notification.userInfo = ["UUID": item.UUID, ] // assign a unique identifier to the notification so that we can retrieve it later
-        //notification.category = "TODO_CATEGORY"
-        
-        UISharedApplication.scheduleLocalNotification(notification)
+//        let notification = UILocalNotification()
+//        notification.alertBody = alertMsg // text that will be displayed in the notification
+//        //notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+//        notification.fireDate = alertDate
+//        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+//        //notification.userInfo = ["UUID": item.UUID, ] // assign a unique identifier to the notification so that we can retrieve it later
+//        //notification.category = "TODO_CATEGORY"
+//        
+//        UISharedApplication.scheduleLocalNotification(notification)
     }
     
     override func viewDidLoad() {
@@ -59,9 +59,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
         
         // Register for Push Notifications
-        UISharedApplication.registerUserNotificationSettings(
-            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
-        UISharedApplication.registerForRemoteNotifications()
+//        UISharedApplication.registerUserNotificationSettings(
+//            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
+//        UISharedApplication.registerForRemoteNotifications()
 
         // If not signed into iCloud notify the user that they need to before using the app
         if !self.db.isICloudAvailable() {
