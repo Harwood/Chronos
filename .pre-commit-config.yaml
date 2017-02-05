@@ -1,0 +1,16 @@
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    sha: 46251c9523506b68419aefdf5ff6ff2fbc4506a4
+    hooks:
+    -   id: check-added-large-files
+    -   id: check-json
+    -   id: check-yaml
+    -   id: trailing-whitespace
+-   repo: https://github.com/Harwood/pre-commit-hooks
+    sha: 8ea238191fe0943efe1da38b1f7e02c5ab0dbf5a
+    hooks:
+    -   id: update-travis-ci
+        args:
+        - --user=Jotessa
+        - --repo=Chronos
+        - --travis=travis-ci.com
+        - --token=MyuGzDqTnjj1DsgNVxpn

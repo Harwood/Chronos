@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		743CFDF31E46A36C004590E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFDF21E46A36C004590E4 /* AppDelegate.swift */; };
+		743CFDF51E46A36C004590E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFDF41E46A36C004590E4 /* ViewController.swift */; };
+		743CFDF81E46A36C004590E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743CFDF61E46A36C004590E4 /* Main.storyboard */; };
+		743CFDFB1E46A36C004590E4 /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 743CFDF91E46A36C004590E4 /* Chronos.xcdatamodeld */; };
+		743CFDFD1E46A36C004590E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 743CFDFC1E46A36C004590E4 /* Assets.xcassets */; };
+		743CFE001E46A36C004590E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743CFDFE1E46A36C004590E4 /* LaunchScreen.storyboard */; };
+		743CFE0B1E46A36C004590E4 /* ChronosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE0A1E46A36C004590E4 /* ChronosTests.swift */; };
+		743CFE161E46A36C004590E4 /* ChronosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE151E46A36C004590E4 /* ChronosUITests.swift */; };
+		743CFE261E46A3AB004590E4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743CFE251E46A3AB004590E4 /* CloudKit.framework */; };
+		743CFE291E46A428004590E4 /* DatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE281E46A428004590E4 /* DatabaseAPI.swift */; };
+		743CFE2C1E46A730004590E4 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE2B1E46A730004590E4 /* Student.swift */; };
+		743CFE2E1E46BDAE004590E4 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE2D1E46BDAE004590E4 /* Converter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		743CFE071E46A36C004590E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743CFDE71E46A36B004590E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 743CFDEE1E46A36B004590E4;
+			remoteInfo = Chronos;
+		};
+		743CFE121E46A36C004590E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 743CFDE71E46A36B004590E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 743CFDEE1E46A36B004590E4;
+			remoteInfo = Chronos;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		743CFDEF1E46A36C004590E4 /* Chronos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chronos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		743CFDF21E46A36C004590E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		743CFDF41E46A36C004590E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		743CFDF71E46A36C004590E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		743CFDFA1E46A36C004590E4 /* Chronos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chronos.xcdatamodel; sourceTree = "<group>"; };
+		743CFDFC1E46A36C004590E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		743CFDFF1E46A36C004590E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		743CFE011E46A36C004590E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		743CFE061E46A36C004590E4 /* ChronosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChronosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		743CFE0A1E46A36C004590E4 /* ChronosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronosTests.swift; sourceTree = "<group>"; };
+		743CFE0C1E46A36C004590E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		743CFE111E46A36C004590E4 /* ChronosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChronosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		743CFE151E46A36C004590E4 /* ChronosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronosUITests.swift; sourceTree = "<group>"; };
+		743CFE171E46A36C004590E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		743CFE231E46A3A6004590E4 /* Chronos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chronos.entitlements; sourceTree = "<group>"; };
+		743CFE251E46A3AB004590E4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		743CFE281E46A428004590E4 /* DatabaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAPI.swift; sourceTree = "<group>"; };
+		743CFE2B1E46A730004590E4 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		743CFE2D1E46BDAE004590E4 /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		743CFDEC1E46A36B004590E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				743CFE261E46A3AB004590E4 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		743CFE031E46A36C004590E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		743CFE0E1E46A36C004590E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		743CFDE61E46A36B004590E4 = {
+			isa = PBXGroup;
+			children = (
+				743CFDF11E46A36C004590E4 /* Chronos */,
+				743CFE091E46A36C004590E4 /* ChronosTests */,
+				743CFE141E46A36C004590E4 /* ChronosUITests */,
+				743CFDF01E46A36C004590E4 /* Products */,
+				743CFE241E46A3AB004590E4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		743CFDF01E46A36C004590E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				743CFDEF1E46A36C004590E4 /* Chronos.app */,
+				743CFE061E46A36C004590E4 /* ChronosTests.xctest */,
+				743CFE111E46A36C004590E4 /* ChronosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		743CFDF11E46A36C004590E4 /* Chronos */ = {
+			isa = PBXGroup;
+			children = (
+				743CFE271E46A3EA004590E4 /* API */,
+				743CFE2A1E46A722004590E4 /* Model */,
+				743CFE231E46A3A6004590E4 /* Chronos.entitlements */,
+				743CFDF21E46A36C004590E4 /* AppDelegate.swift */,
+				743CFDF41E46A36C004590E4 /* ViewController.swift */,
+				743CFDF61E46A36C004590E4 /* Main.storyboard */,
+				743CFDFC1E46A36C004590E4 /* Assets.xcassets */,
+				743CFDFE1E46A36C004590E4 /* LaunchScreen.storyboard */,
+				743CFE011E46A36C004590E4 /* Info.plist */,
+				743CFDF91E46A36C004590E4 /* Chronos.xcdatamodeld */,
+			);
+			path = Chronos;
+			sourceTree = "<group>";
+		};
+		743CFE091E46A36C004590E4 /* ChronosTests */ = {
+			isa = PBXGroup;
+			children = (
+				743CFE0A1E46A36C004590E4 /* ChronosTests.swift */,
+				743CFE0C1E46A36C004590E4 /* Info.plist */,
+			);
+			path = ChronosTests;
+			sourceTree = "<group>";
+		};
+		743CFE141E46A36C004590E4 /* ChronosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				743CFE151E46A36C004590E4 /* ChronosUITests.swift */,
+				743CFE171E46A36C004590E4 /* Info.plist */,
+			);
+			path = ChronosUITests;
+			sourceTree = "<group>";
+		};
+		743CFE241E46A3AB004590E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				743CFE251E46A3AB004590E4 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		743CFE271E46A3EA004590E4 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				743CFE281E46A428004590E4 /* DatabaseAPI.swift */,
+				743CFE2D1E46BDAE004590E4 /* Converter.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		743CFE2A1E46A722004590E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				743CFE2B1E46A730004590E4 /* Student.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		743CFDEE1E46A36B004590E4 /* Chronos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 743CFE1A1E46A36C004590E4 /* Build configuration list for PBXNativeTarget "Chronos" */;
+			buildPhases = (
+				743CFDEB1E46A36B004590E4 /* Sources */,
+				743CFDEC1E46A36B004590E4 /* Frameworks */,
+				743CFDED1E46A36B004590E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Chronos;
+			productName = Chronos;
+			productReference = 743CFDEF1E46A36C004590E4 /* Chronos.app */;
+			productType = "com.apple.product-type.application";
+		};
+		743CFE051E46A36C004590E4 /* ChronosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 743CFE1D1E46A36C004590E4 /* Build configuration list for PBXNativeTarget "ChronosTests" */;
+			buildPhases = (
+				743CFE021E46A36C004590E4 /* Sources */,
+				743CFE031E46A36C004590E4 /* Frameworks */,
+				743CFE041E46A36C004590E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				743CFE081E46A36C004590E4 /* PBXTargetDependency */,
+			);
+			name = ChronosTests;
+			productName = ChronosTests;
+			productReference = 743CFE061E46A36C004590E4 /* ChronosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		743CFE101E46A36C004590E4 /* ChronosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 743CFE201E46A36C004590E4 /* Build configuration list for PBXNativeTarget "ChronosUITests" */;
+			buildPhases = (
+				743CFE0D1E46A36C004590E4 /* Sources */,
+				743CFE0E1E46A36C004590E4 /* Frameworks */,
+				743CFE0F1E46A36C004590E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				743CFE131E46A36C004590E4 /* PBXTargetDependency */,
+			);
+			name = ChronosUITests;
+			productName = ChronosUITests;
+			productReference = 743CFE111E46A36C004590E4 /* ChronosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		743CFDE71E46A36B004590E4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Carter Harwood";
+				TargetAttributes = {
+					743CFDEE1E46A36B004590E4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GK4B8G3DC4;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					743CFE051E46A36C004590E4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GK4B8G3DC4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 743CFDEE1E46A36B004590E4;
+					};
+					743CFE101E46A36C004590E4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GK4B8G3DC4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 743CFDEE1E46A36B004590E4;
+					};
+				};
+			};
+			buildConfigurationList = 743CFDEA1E46A36B004590E4 /* Build configuration list for PBXProject "Chronos" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 743CFDE61E46A36B004590E4;
+			productRefGroup = 743CFDF01E46A36C004590E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				743CFDEE1E46A36B004590E4 /* Chronos */,
+				743CFE051E46A36C004590E4 /* ChronosTests */,
+				743CFE101E46A36C004590E4 /* ChronosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		743CFDED1E46A36B004590E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				743CFE001E46A36C004590E4 /* LaunchScreen.storyboard in Resources */,
+				743CFDFD1E46A36C004590E4 /* Assets.xcassets in Resources */,
+				743CFDF81E46A36C004590E4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		743CFE041E46A36C004590E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		743CFE0F1E46A36C004590E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		743CFDEB1E46A36B004590E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				743CFDFB1E46A36C004590E4 /* Chronos.xcdatamodeld in Sources */,
+				743CFDF51E46A36C004590E4 /* ViewController.swift in Sources */,
+				743CFDF31E46A36C004590E4 /* AppDelegate.swift in Sources */,
+				743CFE2C1E46A730004590E4 /* Student.swift in Sources */,
+				743CFE2E1E46BDAE004590E4 /* Converter.swift in Sources */,
+				743CFE291E46A428004590E4 /* DatabaseAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		743CFE021E46A36C004590E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				743CFE0B1E46A36C004590E4 /* ChronosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		743CFE0D1E46A36C004590E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				743CFE161E46A36C004590E4 /* ChronosUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		743CFE081E46A36C004590E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 743CFDEE1E46A36B004590E4 /* Chronos */;
+			targetProxy = 743CFE071E46A36C004590E4 /* PBXContainerItemProxy */;
+		};
+		743CFE131E46A36C004590E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 743CFDEE1E46A36B004590E4 /* Chronos */;
+			targetProxy = 743CFE121E46A36C004590E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		743CFDF61E46A36C004590E4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				743CFDF71E46A36C004590E4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		743CFDFE1E46A36C004590E4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				743CFDFF1E46A36C004590E4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		743CFE181E46A36C004590E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		743CFE191E46A36C004590E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		743CFE1B1E46A36C004590E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Chronos/Chronos.entitlements;
+				DEVELOPMENT_TEAM = GK4B8G3DC4;
+				INFOPLIST_FILE = Chronos/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.harwood.ChronosICLV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		743CFE1C1E46A36C004590E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Chronos/Chronos.entitlements;
+				DEVELOPMENT_TEAM = GK4B8G3DC4;
+				INFOPLIST_FILE = Chronos/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.harwood.ChronosICLV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		743CFE1E1E46A36C004590E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GK4B8G3DC4;
+				INFOPLIST_FILE = ChronosTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.harwood.ChronosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chronos.app/Chronos";
+			};
+			name = Debug;
+		};
+		743CFE1F1E46A36C004590E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GK4B8G3DC4;
+				INFOPLIST_FILE = ChronosTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.harwood.ChronosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chronos.app/Chronos";
+			};
+			name = Release;
+		};
+		743CFE211E46A36C004590E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = GK4B8G3DC4;
+				INFOPLIST_FILE = ChronosUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.harwood.ChronosUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Chronos;
+			};
+			name = Debug;
+		};
+		743CFE221E46A36C004590E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = GK4B8G3DC4;
+				INFOPLIST_FILE = ChronosUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.harwood.ChronosUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Chronos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		743CFDEA1E46A36B004590E4 /* Build configuration list for PBXProject "Chronos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				743CFE181E46A36C004590E4 /* Debug */,
+				743CFE191E46A36C004590E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		743CFE1A1E46A36C004590E4 /* Build configuration list for PBXNativeTarget "Chronos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				743CFE1B1E46A36C004590E4 /* Debug */,
+				743CFE1C1E46A36C004590E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		743CFE1D1E46A36C004590E4 /* Build configuration list for PBXNativeTarget "ChronosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				743CFE1E1E46A36C004590E4 /* Debug */,
+				743CFE1F1E46A36C004590E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		743CFE201E46A36C004590E4 /* Build configuration list for PBXNativeTarget "ChronosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				743CFE211E46A36C004590E4 /* Debug */,
+				743CFE221E46A36C004590E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		743CFDF91E46A36C004590E4 /* Chronos.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				743CFDFA1E46A36C004590E4 /* Chronos.xcdatamodel */,
+			);
+			currentVersion = 743CFDFA1E46A36C004590E4 /* Chronos.xcdatamodel */;
+			path = Chronos.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 743CFDE71E46A36B004590E4 /* Project object */;
+}
