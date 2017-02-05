@@ -13,9 +13,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        performSegue(withIdentifier: "embedInitialCenterController", sender: nil)
-        performSegue(withIdentifier: "embedSideController", sender: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,4 +22,3 @@ class ViewController: UIViewController {
 
 
 }
-

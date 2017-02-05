@@ -38,11 +38,11 @@ class ChronosTests: XCTestCase {
         self.measure {
             DatabaseAPI.fetch(type: .publicRecord,
                               withRecordID: CKRecordID(recordName: studentID),
-                              completionHandler: { student, error in
+                              completionHandler: { record, error in
                                 XCTAssertNil(error)
-                                XCTAssertNotNil(student)
+                                XCTAssertNotNil(record)
                                 
-                                let student = Converter.student(fromCKRecord: student!)
+                                let student = Converter.student(fromCKRecord: record!)
                                 
                                 XCTAssertEqual("000596726", student.id)
                                 XCTAssertEqual("AJ Longbrake", student.name)

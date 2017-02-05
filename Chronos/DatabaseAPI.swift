@@ -9,20 +9,51 @@
 import CloudKit
 import Foundation
 
+
+/// Wrapper for interacting consistantly with CloudKit
+///
+/// - author: Carter Harwood <Harwood@users.noreply.github.com>
+/// - date: 2017.02.04
 struct DatabaseAPI {
     
-    fileprivate static let publicDatabase = CKContainer.default().publicCloudDatabase
-    fileprivate static let privateDatabase = CKContainer.default().privateCloudDatabase
+    private static let syncQueue = DispatchQueue(label: "DatabaseAPI.syncQueue")
     
-    fileprivate static let syncQueue = DispatchQueue(label: "DatabaseAPI.syncQueue")
+    /// Prevents others from using the default '()' initializer for this class.
+    ///
+    /// - author: Carter Harwood <Harwood@users.noreply.github.com>
+    /// - date: 2017.02.04
+    private init() {}
     
-    private init() {} //This prevents others from using the default '()' initializer for this class.
-    
-    enum DatabaseType {
-        case publicRecord
+    ///
+    ///
+    /// - author: Carter Harwood <Harwood@users.noreply.github.com>
+    /// - date: 2017.02.04
+     enum DatabaseType {
         case privateRecord
+        case publicRecord
+        case sharedRecord
+        
+        /// Provides an instance of requested iCloud database
+        ///
+        /// - author: Carter Harwood <Harwood@users.noreply.github.com>
+        /// - date: 2017.02.04
+        fileprivate var instance: CKDatabase {
+            switch self {
+            case .privateRecord:
+                return CKContainer.default().privateCloudDatabase
+            case .publicRecord:
+                return CKContainer.default().publicCloudDatabase
+            case .sharedRecord:
+                return CKContainer.default().sharedCloudDatabase
+            }
+        }
     }
     
+    
+    /// Check if device is logged into iCloud and app has permission
+    ///
+    /// - author: Carter Harwood <Harwood@users.noreply.github.com>
+    /// - date: 2017.02.04
     static func isICloudAvailable() -> Bool{
         if let _ = FileManager.default.ubiquityIdentityToken {
             return true
@@ -31,63 +62,60 @@ struct DatabaseAPI {
         }
     }
     
-    static func fetch(type:DatabaseType,
-               withRecordID recordID:CKRecordID,
-               completionHandler: @escaping (CKRecord?, Error?) -> Void) {
+    /// Perform a fetch request against specified iCloud database
+    ///
+    /// - author: Carter Harwood <Harwood@users.noreply.github.com>
+    /// - date: 2017.02.04
+    static func fetch(type database:DatabaseType,
+                      withRecordID recordID:CKRecordID,
+                      completionHandler: @escaping (CKRecord?, Error?) -> Void) {
         
         syncQueue.async {
-            switch type {
-            case .privateRecord:
-                self.privateDatabase.fetch(withRecordID: recordID,
-                                           completionHandler: completionHandler)
-            case .publicRecord:
-                self.publicDatabase.fetch(withRecordID: recordID,
-                                          completionHandler: completionHandler)
-            }
+            database.instance.fetch(withRecordID: recordID,
+                                    completionHandler: completionHandler)
         }
     }
     
-    static func save(type:DatabaseType, record:CKRecord,
-              completionHandler: @escaping (CKRecord?, Error?) -> Void) {
+    ///
+    ///
+    /// - author: Carter Harwood <Harwood@users.noreply.github.com>
+    /// - date: 2017.02.04
+    static func save(type database:DatabaseType, record:CKRecord,
+                     completionHandler: @escaping (CKRecord?, Error?) -> Void) {
         
-        switch type {
-        case .privateRecord:
-            self.publicDatabase.save(record,
-                                     completionHandler: completionHandler)
-        case .publicRecord:
-            self.publicDatabase.save(record,
-                                     completionHandler: completionHandler)
+        syncQueue.async {
+            database.instance.save(record,
+                                   completionHandler: completionHandler)
         }
     }
     
-    static func search(type:DatabaseType,
-                withQuery query:CKQuery,
-                inZoneWith zoneID:CKRecordZoneID?,
-                completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
+    ///
+    ///
+    /// - author: Carter Harwood <Harwood@users.noreply.github.com>
+    /// - date: 2017.02.04
+    static func search(type database:DatabaseType,
+                       withQuery query:CKQuery,
+                       inZoneWith zoneID:CKRecordZoneID?,
+                       completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
         
-        switch type {
-        case .privateRecord:
-            self.privateDatabase.perform(query,
-                                         inZoneWith: zoneID,
-                                         completionHandler: completionHandler)
-        case .publicRecord:
-            self.publicDatabase.perform(query,
-                                        inZoneWith: zoneID,
-                                        completionHandler: completionHandler)
+        syncQueue.async {
+            database.instance.perform(query,
+                             inZoneWith: zoneID,
+                             completionHandler: completionHandler)
         }
     }
     
-    static func delete(type:DatabaseType,
-                withRecordID recordID:CKRecordID,
-                completionHandler: @escaping (CKRecordID?, Error?) -> Void) {
+    ///
+    ///
+    /// - author: Carter Harwood <Harwood@users.noreply.github.com>
+    /// - date: 2017.02.04
+    static func delete(type database:DatabaseType,
+                       withRecordID recordID:CKRecordID,
+                       completionHandler: @escaping (CKRecordID?, Error?) -> Void) {
         
-        switch type {
-        case .privateRecord:
-            self.privateDatabase.delete(withRecordID: recordID,
-                                        completionHandler: completionHandler)
-        case .publicRecord:
-            self.publicDatabase.delete(withRecordID: recordID,
-                                       completionHandler: completionHandler)
+        syncQueue.async {
+            database.instance.delete(withRecordID: recordID,
+                            completionHandler: completionHandler)
         }
     }
 }
