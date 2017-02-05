@@ -20,24 +20,24 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     let db = DatabaseAPI.sharedInstance
     
-    let UISharedApplication = UIApplication.sharedApplication()
+    let UISharedApplication = UIApplication.shared
     
     // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
     
-    func displayAlertWithTitle(title: String, message: String) {
+    func displayAlertWithTitle(_ title: String, message: String) {
         let controller = UIAlertController(title: title,
             message: message,
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
         controller.addAction(UIAlertAction(title: "OK",
-            style: .Default,
+            style: .default,
             handler: nil))
         
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
     }
     
-    func sendLocalNotification(withAlert alertMsg:String, onDate alertDate:NSDate?=NSDate()) {
+    func sendLocalNotification(withAlert alertMsg:String, onDate alertDate:Date?=Date()) {
 //        let notification = UILocalNotification()
 //        notification.alertBody = alertMsg // text that will be displayed in the notification
 //        //notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
@@ -54,7 +54,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()
-            menuButton.action = #selector(revealViewController().revealToggle)
+            menuButton.action = #selector(revealViewController().revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
@@ -69,7 +69,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             " Please sign into your iCloud account and restart this app")
         }
 
-        let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
         do {
             // Get an instance of the AVCaptureDeviceInput class using the previous device object.
@@ -83,7 +83,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             captureSession?.addOutput(captureMetadataOutput)
             
             // Set delegate and use the default dispatch queue to execute the call back
-            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
 
             // Detect all the supported bar code
             captureMetadataOutput.metadataObjectTypes = supportedBarCodes
@@ -101,10 +101,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             qrCodeFrameView = UIView()
             
             if let qrCodeFrameView = qrCodeFrameView {
-                qrCodeFrameView.layer.borderColor = UIColor.greenColor().CGColor
+                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
                 qrCodeFrameView.layer.borderWidth = 2
                 view.addSubview(qrCodeFrameView)
-                view.bringSubviewToFront(qrCodeFrameView)
+                view.bringSubview(toFront: qrCodeFrameView)
             }
             
         } catch {
@@ -120,11 +120,11 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         // Dispose of any resources that can be recreated.
     }
 
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRectZero
+            qrCodeFrameView?.frame = CGRect.zero
             return
         }
         
@@ -132,7 +132,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
         if supportedBarCodes.contains(metadataObj.type) {
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObjectForMetadataObject(metadataObj)
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
@@ -141,15 +141,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
 
-    func getStudent(studentID: String)  {
+    func getStudent(_ studentID: String)  {
         if !self.foundIDs.contains(studentID) {
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.foundIDs.append(studentID)
                 
                 self.db.fetchPublicRecordWithID(CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
                     guard let fetchedStudent = fetchedStudent else {
                         print("ERROR IN GETTING STUDENT!", terminator: "")
-                        self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
+                        self.foundIDs.remove(at: self.foundIDs.index(of: studentID)!)
                         return
                     }
                     
@@ -164,16 +164,16 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     /**
      Adds entry of attendance to CloudKit database
     */
-    func checkStudentIn(studentID:String, studentName:String) {
-        let dayTimePeriodFormatter = NSDateFormatter()
+    func checkStudentIn(_ studentID:String, studentName:String) {
+        let dayTimePeriodFormatter = DateFormatter()
         dayTimePeriodFormatter.dateFormat = "yyyyMMdd:HHmm"
         
-        let recordName = studentID + " - " + dayTimePeriodFormatter.stringFromDate(NSDate())
+        let recordName = studentID + " - " + dayTimePeriodFormatter.string(from: Date())
         
         let attendanceRecord = CKRecord(recordType: "Attendance", recordID: CKRecordID(recordName: recordName))
         attendanceRecord.setObject(
             CKReference(recordID: CKRecordID(recordName: studentID),
-                action: CKReferenceAction.DeleteSelf), forKey: "Student")
+                action: CKReferenceAction.deleteSelf), forKey: "Student")
         
         self.db.savePublicRecord(attendanceRecord, completionHandler: { (record, error) -> Void in
             if error != nil {
@@ -182,7 +182,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             
             self.displayAlertWithTitle("Student Checked In", message: studentName + " has been checked in.")
             
-            self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
+            self.foundIDs.remove(at: self.foundIDs.index(of: studentID)!)
             
         })
     }

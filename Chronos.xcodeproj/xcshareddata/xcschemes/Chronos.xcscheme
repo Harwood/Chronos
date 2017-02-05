@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC25E4F341A2762F9DFAE051259E8E9E"
+               BlueprintIdentifier = "447E024199F35A6806D4DAD7025B285E"
                BuildableName = "SWRevealViewController.framework"
                BlueprintName = "SWRevealViewController"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D383FCF62205AA5AC041CB97FB216180"
+               BlueprintIdentifier = "55BCA62CD0AE6F2D6C54E67A39858F94"
                BuildableName = "Pods_Chronos.framework"
                BlueprintName = "Pods-Chronos"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
