@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		088F62D2F64BE3C59CE7B46F /* Pods_ChronosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3A4FCA42CF49221E6A5663 /* Pods_ChronosUITests.framework */; };
+		28AB6A59028ED1A5775F047F /* Pods_ChronosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 740D0A2BFCD3C9A18368EA87 /* Pods_ChronosTests.framework */; };
+		3F32FD6D29C146B2F1F17BE9 /* Pods_Chronos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B0893F5758BE9E14AAF6969 /* Pods_Chronos.framework */; };
 		743CFDF31E46A36C004590E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFDF21E46A36C004590E4 /* AppDelegate.swift */; };
 		743CFDF51E46A36C004590E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFDF41E46A36C004590E4 /* ViewController.swift */; };
 		743CFDF81E46A36C004590E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 743CFDF61E46A36C004590E4 /* Main.storyboard */; };
@@ -19,6 +22,10 @@
 		743CFE291E46A428004590E4 /* DatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE281E46A428004590E4 /* DatabaseAPI.swift */; };
 		743CFE2C1E46A730004590E4 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE2B1E46A730004590E4 /* Student.swift */; };
 		743CFE2E1E46BDAE004590E4 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE2D1E46BDAE004590E4 /* Converter.swift */; };
+		743CFE321E46D647004590E4 /* Roster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE311E46D647004590E4 /* Roster.swift */; };
+		743CFE341E46D665004590E4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE331E46D665004590E4 /* Person.swift */; };
+		743CFE361E46D717004590E4 /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE351E46D717004590E4 /* Instructor.swift */; };
+		743CFE3A1E46D887004590E4 /* StudentUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CFE391E46D887004590E4 /* StudentUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1571AD9F47F5FA2F464EDB43 /* Pods-ChronosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChronosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChronosTests/Pods-ChronosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4F3A4FCA42CF49221E6A5663 /* Pods_ChronosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChronosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BA2E721BB91036E30202DE4 /* Pods-ChronosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChronosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChronosUITests/Pods-ChronosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		730BAE99BF8250260756F93D /* Pods-Chronos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chronos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chronos/Pods-Chronos.debug.xcconfig"; sourceTree = "<group>"; };
+		740D0A2BFCD3C9A18368EA87 /* Pods_ChronosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChronosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		743CFDEF1E46A36C004590E4 /* Chronos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chronos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		743CFDF21E46A36C004590E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		743CFDF41E46A36C004590E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +70,14 @@
 		743CFE281E46A428004590E4 /* DatabaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAPI.swift; sourceTree = "<group>"; };
 		743CFE2B1E46A730004590E4 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		743CFE2D1E46BDAE004590E4 /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		743CFE311E46D647004590E4 /* Roster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roster.swift; sourceTree = "<group>"; };
+		743CFE331E46D665004590E4 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		743CFE351E46D717004590E4 /* Instructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
+		743CFE391E46D887004590E4 /* StudentUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentUtilities.swift; sourceTree = "<group>"; };
+		852E90E865606A443C0E0DC9 /* Pods-Chronos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chronos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chronos/Pods-Chronos.release.xcconfig"; sourceTree = "<group>"; };
+		97826CA9C09385082ABF79D2 /* Pods-ChronosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChronosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChronosTests/Pods-ChronosTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B0893F5758BE9E14AAF6969 /* Pods_Chronos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chronos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E37EE1672AF5C4B22F48B1AD /* Pods-ChronosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChronosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChronosUITests/Pods-ChronosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				743CFE261E46A3AB004590E4 /* CloudKit.framework in Frameworks */,
+				3F32FD6D29C146B2F1F17BE9 /* Pods_Chronos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28AB6A59028ED1A5775F047F /* Pods_ChronosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				088F62D2F64BE3C59CE7B46F /* Pods_ChronosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +117,7 @@
 				743CFE141E46A36C004590E4 /* ChronosUITests */,
 				743CFDF01E46A36C004590E4 /* Products */,
 				743CFE241E46A3AB004590E4 /* Frameworks */,
+				8831773E7AB375C803FFA19D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +136,7 @@
 			children = (
 				743CFE271E46A3EA004590E4 /* API */,
 				743CFE2A1E46A722004590E4 /* Model */,
+				743CFE381E46D856004590E4 /* Utilities */,
 				743CFE231E46A3A6004590E4 /* Chronos.entitlements */,
 				743CFDF21E46A36C004590E4 /* AppDelegate.swift */,
 				743CFDF41E46A36C004590E4 /* ViewController.swift */,
@@ -146,6 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				743CFE251E46A3AB004590E4 /* CloudKit.framework */,
+				9B0893F5758BE9E14AAF6969 /* Pods_Chronos.framework */,
+				740D0A2BFCD3C9A18368EA87 /* Pods_ChronosTests.framework */,
+				4F3A4FCA42CF49221E6A5663 /* Pods_ChronosUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				743CFE281E46A428004590E4 /* DatabaseAPI.swift */,
-				743CFE2D1E46BDAE004590E4 /* Converter.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -162,9 +189,42 @@
 		743CFE2A1E46A722004590E4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				743CFE2B1E46A730004590E4 /* Student.swift */,
+				743CFE371E46D732004590E4 /* People */,
+				743CFE311E46D647004590E4 /* Roster.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		743CFE371E46D732004590E4 /* People */ = {
+			isa = PBXGroup;
+			children = (
+				743CFE351E46D717004590E4 /* Instructor.swift */,
+				743CFE2B1E46A730004590E4 /* Student.swift */,
+				743CFE331E46D665004590E4 /* Person.swift */,
+			);
+			name = People;
+			sourceTree = "<group>";
+		};
+		743CFE381E46D856004590E4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				743CFE2D1E46BDAE004590E4 /* Converter.swift */,
+				743CFE391E46D887004590E4 /* StudentUtilities.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		8831773E7AB375C803FFA19D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				730BAE99BF8250260756F93D /* Pods-Chronos.debug.xcconfig */,
+				852E90E865606A443C0E0DC9 /* Pods-Chronos.release.xcconfig */,
+				1571AD9F47F5FA2F464EDB43 /* Pods-ChronosTests.debug.xcconfig */,
+				97826CA9C09385082ABF79D2 /* Pods-ChronosTests.release.xcconfig */,
+				E37EE1672AF5C4B22F48B1AD /* Pods-ChronosUITests.debug.xcconfig */,
+				6BA2E721BB91036E30202DE4 /* Pods-ChronosUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,9 +234,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 743CFE1A1E46A36C004590E4 /* Build configuration list for PBXNativeTarget "Chronos" */;
 			buildPhases = (
+				8E11D1637500183133926DFE /* [CP] Check Pods Manifest.lock */,
 				743CFDEB1E46A36B004590E4 /* Sources */,
 				743CFDEC1E46A36B004590E4 /* Frameworks */,
 				743CFDED1E46A36B004590E4 /* Resources */,
+				B00FE5756FA28D7B67D10012 /* [CP] Embed Pods Frameworks */,
+				C243EDA62097F3A9076C5F81 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,9 +254,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 743CFE1D1E46A36C004590E4 /* Build configuration list for PBXNativeTarget "ChronosTests" */;
 			buildPhases = (
+				310F221037A42476DAD577FD /* [CP] Check Pods Manifest.lock */,
 				743CFE021E46A36C004590E4 /* Sources */,
 				743CFE031E46A36C004590E4 /* Frameworks */,
 				743CFE041E46A36C004590E4 /* Resources */,
+				E55D75CB1EB6A6B062F06173 /* [CP] Embed Pods Frameworks */,
+				4300EFAAB071CE9E0D270E96 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,9 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 743CFE201E46A36C004590E4 /* Build configuration list for PBXNativeTarget "ChronosUITests" */;
 			buildPhases = (
+				C828A1CD6B3065835C9CC3F6 /* [CP] Check Pods Manifest.lock */,
 				743CFE0D1E46A36C004590E4 /* Sources */,
 				743CFE0E1E46A36C004590E4 /* Frameworks */,
 				743CFE0F1E46A36C004590E4 /* Resources */,
+				C25E66E5AD3B57DFEEA26437 /* [CP] Embed Pods Frameworks */,
+				4B009021F2E8B6C35541E45D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -307,16 +376,158 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		310F221037A42476DAD577FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4300EFAAB071CE9E0D270E96 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChronosTests/Pods-ChronosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B009021F2E8B6C35541E45D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChronosUITests/Pods-ChronosUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E11D1637500183133926DFE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B00FE5756FA28D7B67D10012 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chronos/Pods-Chronos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C243EDA62097F3A9076C5F81 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chronos/Pods-Chronos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C25E66E5AD3B57DFEEA26437 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChronosUITests/Pods-ChronosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C828A1CD6B3065835C9CC3F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E55D75CB1EB6A6B062F06173 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChronosTests/Pods-ChronosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		743CFDEB1E46A36B004590E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				743CFDFB1E46A36C004590E4 /* Chronos.xcdatamodeld in Sources */,
+				743CFE361E46D717004590E4 /* Instructor.swift in Sources */,
+				743CFE3A1E46D887004590E4 /* StudentUtilities.swift in Sources */,
 				743CFDF51E46A36C004590E4 /* ViewController.swift in Sources */,
 				743CFDF31E46A36C004590E4 /* AppDelegate.swift in Sources */,
 				743CFE2C1E46A730004590E4 /* Student.swift in Sources */,
+				743CFE321E46D647004590E4 /* Roster.swift in Sources */,
 				743CFE2E1E46BDAE004590E4 /* Converter.swift in Sources */,
+				743CFE341E46D665004590E4 /* Person.swift in Sources */,
 				743CFE291E46A428004590E4 /* DatabaseAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +676,7 @@
 		};
 		743CFE1B1E46A36C004590E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 730BAE99BF8250260756F93D /* Pods-Chronos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Chronos/Chronos.entitlements;
@@ -479,6 +691,7 @@
 		};
 		743CFE1C1E46A36C004590E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 852E90E865606A443C0E0DC9 /* Pods-Chronos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Chronos/Chronos.entitlements;
@@ -493,6 +706,7 @@
 		};
 		743CFE1E1E46A36C004590E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1571AD9F47F5FA2F464EDB43 /* Pods-ChronosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +722,7 @@
 		};
 		743CFE1F1E46A36C004590E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97826CA9C09385082ABF79D2 /* Pods-ChronosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -523,6 +738,7 @@
 		};
 		743CFE211E46A36C004590E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E37EE1672AF5C4B22F48B1AD /* Pods-ChronosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = GK4B8G3DC4;
@@ -537,6 +753,7 @@
 		};
 		743CFE221E46A36C004590E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BA2E721BB91036E30202DE4 /* Pods-ChronosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = GK4B8G3DC4;

@@ -1,5 +1,5 @@
 //
-//  Student.swift
+//  Instructor.swift
 //  Chronos
 //
 //  Created by Carter Harwood on 2/4/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Student : Person {
+class Instructor : Person {
     override init(withName name:String, andId id:String) {
         super.init(withName: name, andId: id)
     }

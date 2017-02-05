@@ -16,6 +16,8 @@ struct DatabaseAPI {
     
     fileprivate static let syncQueue = DispatchQueue(label: "DatabaseAPI.syncQueue")
     
+    private init() {} //This prevents others from using the default '()' initializer for this class.
+    
     enum DatabaseType {
         case publicRecord
         case privateRecord
