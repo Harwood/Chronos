@@ -612,6 +612,7 @@
 			baseConfigurationReference = 70322B89747E9B2B7BC79622 /* Pods-ChronosTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GK4B8G3DC4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -634,6 +635,7 @@
 			baseConfigurationReference = 5276810D115983CC71A627B7 /* Pods-ChronosTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GK4B8G3DC4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
