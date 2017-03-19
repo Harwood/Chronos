@@ -6,7 +6,7 @@ language: objective-c
 osx_image: xcode8.2
 
 script:
-    - xcodebuild build test -workspace Chronos.xcworkspace -scheme Chronos -destination "platform=iOS Simulator,name=iPhone 6 Plus,OS=9.3"
+    - xcodebuild build test -workspace Chronos.xcworkspace -scheme Chronos -destination "platform=iOS Simulator,name=iPhone 6 Plus,OS=10.2"
 
 notifications:
   slack:
