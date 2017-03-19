@@ -1,4 +1,4 @@
-import UIKit
+ import UIKit
 import CloudKit
 import MessageUI
 import SVWebViewController
@@ -57,7 +57,7 @@ class StudentDetailViewController: UITableViewController, MFMailComposeViewContr
             CKQuery(recordType: "Attendance", predicate: predicate),
             inZoneWithID: nil) { results, error in
                 if error != nil {
-                    print("Error geting classes", terminator: "")
+                    print("Error geting classes : \(error?.localizedDescription)", terminator: "")
                 } else {
                     if results!.count > 0 {
                         print(results!, terminator: "")
