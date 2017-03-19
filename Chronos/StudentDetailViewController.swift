@@ -1,4 +1,4 @@
- import UIKit
+import UIKit
 import CloudKit
 import MessageUI
 import SVWebViewController
@@ -22,47 +22,47 @@ class StudentDetailViewController: UITableViewController, MFMailComposeViewContr
 
         self.title = self.studentName
         
-        self.tableView.isEditing = false
+        self.tableView.editing = false
         
-        self.refreshControl?.addTarget(self, action: #selector(StudentDetailViewController.refresh(_:)), for: UIControlEvents.valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(StudentDetailViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
 
         self.studentId = self.db.students[self.studentRowNumber!].id
         self.studentRecord = self.db.students[self.studentRowNumber!].ckRecord
 
         self.db.studentAttendance.removeAll()
 
-        DispatchQueue.main.async {
+        dispatch_async(dispatch_get_main_queue()) {
             self.fetchStudentAttendanceWithRecord(self.studentRecord!)
         }
     }
     
-    func refresh(_ sender:AnyObject) -> Void {
-        DispatchQueue.main.async {
+    func refresh(sender:AnyObject) -> Void {
+        dispatch_async(dispatch_get_main_queue()) {
             self.fetchStudentAttendanceWithRecord(self.studentRecord!)
             self.refreshControl?.endRefreshing()
         }
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentDetailCell", for: indexPath)
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("StudentDetailCell", forIndexPath: indexPath)
 
         cell.textLabel?.text = self.db.studentAttendance[indexPath.row]
 
         return cell
     }
 
-    func fetchStudentAttendanceWithRecord(_ studentRecord: CKRecord) {
-        let predicate = NSPredicate(format: "%K == %@", "Student" ,CKReference(recordID: studentRecord.recordID, action: CKReferenceAction.none))
+    func fetchStudentAttendanceWithRecord(studentRecord: CKRecord) {
+        let predicate = NSPredicate(format: "%K == %@", "Student" ,CKReference(recordID: studentRecord.recordID, action: CKReferenceAction.None))
         self.db.performPublicQuery(
             CKQuery(recordType: "Attendance", predicate: predicate),
             inZoneWithID: nil) { results, error in
                 if error != nil {
-                    print("Error geting classes : \(error?.localizedDescription)", terminator: "")
+                    print("Error geting classes", terminator: "")
                 } else {
                     if results!.count > 0 {
-                        print(results!, terminator: "")
+                        print(results, terminator: "")
                         
-                        DispatchQueue.main.async {
+                        dispatch_async(dispatch_get_main_queue()) {
                             self.db.updateStudentAttendanceList(results)
                             
                             self.tableView?.reloadData()
@@ -72,7 +72,7 @@ class StudentDetailViewController: UITableViewController, MFMailComposeViewContr
         }
     }
 
-    @IBAction func reportButtonAction(_ sender: UIBarButtonItem) {
+    @IBAction func reportButtonAction(sender: UIBarButtonItem) {
         let filename = "\(self.studentId!)_report"
 
         self.report.createReport(forStrudent: self.studentName!, withID: self.studentId!, withFilename: filename)
@@ -92,27 +92,27 @@ class StudentDetailViewController: UITableViewController, MFMailComposeViewContr
 
 
             let filePath = self.report.getDocumentPath(withName: filename).stringByAppendingPathComponent(filename+".html")
-            if let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+            if let fileData = NSData(contentsOfFile: filePath) {
                     mailComposer.addAttachmentData(fileData, mimeType: "text/html", fileName: "Student Attendance - \(self.studentId)")
 
             }
 
-            self.present(mailComposer, animated: true, completion: nil)
+            self.presentViewController(mailComposer, animated: true, completion: nil)
         }
     }
 
-    internal func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        self.dismiss(animated: true, completion: nil)
+    internal func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.db.studentAttendance.count
     }
 }
 
 extension String {
-    func stringByAppendingPathComponent(_ path: String) -> String {
+    func stringByAppendingPathComponent(path: String) -> String {
         let nsSt = self as NSString
-        return nsSt.appendingPathComponent(path)
+        return nsSt.stringByAppendingPathComponent(path)
     }
 }

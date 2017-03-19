@@ -7,8 +7,8 @@ import CloudKit
 class DatabaseAPI {
     static let sharedInstance = DatabaseAPI()
     
-    private let publicDatabase = CKContainer.default().publicCloudDatabase
-    private let privateDatabase = CKContainer.default().privateCloudDatabase
+    private let publicDatabase = CKContainer.defaultContainer().publicCloudDatabase
+    private let privateDatabase = CKContainer.defaultContainer().privateCloudDatabase
     
     private var foundIDs = [String]()
     
@@ -26,7 +26,7 @@ class DatabaseAPI {
     - Returns: True if iCloud is available, else false
      */
     func isICloudAvailable() -> Bool{
-        if let _ = FileManager.default.ubiquityIdentityToken {
+        if let _ = NSFileManager.defaultManager().ubiquityIdentityToken {
             return true
         } else {
             return false
@@ -36,13 +36,13 @@ class DatabaseAPI {
     /**
      Updates local student list from CloudKit
     */
-    func updateStudentList(_ list:[CKRecord]?) {
+    func updateStudentList(list:[CKRecord]?) {
         self.students.removeAll()
         
         for item in list! {
             let student = item as CKRecord
             
-            let name = student.object(forKey: "Name")
+            let name = student.objectForKey("Name")
             
             let id = student.recordID.recordName
             
@@ -53,17 +53,17 @@ class DatabaseAPI {
     /**
      Updates local student attendance list from CloudKit
     */
-    func updateStudentAttendanceList(_ list:[CKRecord]?) {
+    func updateStudentAttendanceList(list:[CKRecord]?) {
         self.studentAttendance.removeAll()
 
         for item in list! {
             let record = item as CKRecord
             
-            let dateFormatter = DateFormatter()
+            let dateFormatter = NSDateFormatter()
             
             dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
             
-            let name:String = dateFormatter.string(from: record.creationDate!)
+            let name:String = dateFormatter.stringFromDate(record.creationDate!)
             
             self.studentAttendance.append(name)
         }
@@ -76,17 +76,17 @@ class DatabaseAPI {
      
      - Returns: Student with id
      */
-    func getStudent(_ studentID: String) -> Student {
+    func getStudent(studentID: String) -> Student {
         var student:Student?
         
         if !self.foundIDs.contains(studentID) {
-            DispatchQueue.main.async {
+            dispatch_async(dispatch_get_main_queue()) {
                 self.foundIDs.append(studentID)
                 
-                self.publicDatabase.fetch(withRecordID: CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
+                self.publicDatabase.fetchRecordWithID(CKRecordID(recordName: studentID), completionHandler: { fetchedStudent, error in
                     guard let fetchedStudent = fetchedStudent else {
                         print("ERROR IN GETTING STUDENT!", terminator: "")
-                        self.foundIDs.remove(at: self.foundIDs.index(of: studentID)!)
+                        self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
                         return
                     }
                     
@@ -98,24 +98,24 @@ class DatabaseAPI {
         return student!
     }
     
-    func fetchPublicRecordWithID(_ recordID: CKRecordID, completionHandler: @escaping (CKRecord?, Error?) -> Void) {
-        self.publicDatabase.fetch(withRecordID: recordID, completionHandler: completionHandler)
+    func fetchPublicRecordWithID(recordID: CKRecordID, completionHandler: (CKRecord?, NSError?) -> Void) {
+        self.publicDatabase.fetchRecordWithID(recordID, completionHandler: completionHandler)
     }
     
-    func performPublicQuery(_ query: CKQuery, inZoneWithID: CKRecordZoneID?, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
-        self.publicDatabase.perform(query, inZoneWith: inZoneWithID, completionHandler: completionHandler)
+    func performPublicQuery(query: CKQuery, inZoneWithID: CKRecordZoneID?, completionHandler: ([CKRecord]?, NSError?) -> Void) {
+        self.publicDatabase.performQuery(query, inZoneWithID: inZoneWithID, completionHandler: completionHandler)
     }
     
-    func savePublicRecord(_ record: CKRecord, completionHandler: @escaping (CKRecord?, Error?) -> Void) {
-        self.publicDatabase.save(record, completionHandler: completionHandler)
+    func savePublicRecord(record: CKRecord, completionHandler: (CKRecord?, NSError?) -> Void) {
+        self.publicDatabase.saveRecord(record, completionHandler: completionHandler)
     }
     
-    func performPrivateQuery(_ query: CKQuery, inZoneWithID: CKRecordZoneID?, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
-        self.privateDatabase.perform(query, inZoneWith: inZoneWithID, completionHandler: completionHandler)
+    func performPrivateQuery(query: CKQuery, inZoneWithID: CKRecordZoneID?, completionHandler: ([CKRecord]?, NSError?) -> Void) {
+        self.privateDatabase.performQuery(query, inZoneWithID: inZoneWithID, completionHandler: completionHandler)
     }
     
-    func savePrivateRecord(_ record: CKRecord, completionHandler: @escaping (CKRecord?, Error?) -> Void) {
-        self.privateDatabase.save(record, completionHandler: completionHandler)
+    func savePrivateRecord(record: CKRecord, completionHandler: (CKRecord?, NSError?) -> Void) {
+        self.privateDatabase.saveRecord(record, completionHandler: completionHandler)
     }
     
     
@@ -126,23 +126,23 @@ class DatabaseAPI {
      
      - Returns: True if successful, else false
      */
-    func checkStudentIn(_ studentID:String) -> Bool {
-        let dayTimePeriodFormatter = DateFormatter()
+    func checkStudentIn(studentID:String) -> Bool {
+        let dayTimePeriodFormatter = NSDateFormatter()
         dayTimePeriodFormatter.dateFormat = "yyyyMMdd:HHmm"
         
-        let recordName = studentID + " - " + dayTimePeriodFormatter.string(from: Date())
+        let recordName = studentID + " - " + dayTimePeriodFormatter.stringFromDate(NSDate())
         
         let attendanceRecord = CKRecord(recordType: "Attendance", recordID: CKRecordID(recordName: recordName))
         attendanceRecord.setObject(
             CKReference(recordID: CKRecordID(recordName: studentID),
-                action: CKReferenceAction.deleteSelf), forKey: "Student")
+                action: CKReferenceAction.DeleteSelf), forKey: "Student")
         
-        self.publicDatabase.save(attendanceRecord, completionHandler: { (record, error) -> Void in
+        self.publicDatabase.saveRecord(attendanceRecord, completionHandler: { (record, error) -> Void in
             if error != nil {
                 print("Error geting classes", terminator: "")
             }
             
-            self.foundIDs.remove(at: self.foundIDs.index(of: studentID)!)
+            self.foundIDs.removeAtIndex(self.foundIDs.indexOf(studentID)!)
         })
         
         return true
