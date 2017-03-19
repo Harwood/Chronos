@@ -1,14 +1,17 @@
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  sha: v0.6.0
-  hooks:
-      - id: check-added-large-files
-      - id: check-json
-      - id: check-yaml
-      - id: debug-statements
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
-- repo: https://github.com/Harwood/pre-commit-hooks
-  sha: 8ea238191fe0943efe1da38b1f7e02c5ab0dbf5a
-  hooks:
-      - id: update-travis-ci
-        args: [--user=Jotessa, --repo=Chronos, --travis=travis-ci.com, --token=MyuGzDqTnjj1DsgNVxpn]
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    sha: 414cfa7b2322cf1c46cd33a49e9da833ad785473
+    hooks:
+    -   id: check-added-large-files
+    -   id: check-json
+    -   id: check-yaml
+    -   id: debug-statements
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: https://github.com/Harwood/pre-commit-hooks
+    sha: f756b8e65f851891e4f4cfc170a072ea854e4e97
+    hooks:
+    -   id: update-travis-ci
+        args:
+        - --user=Harwood
+        - --repo=Chronos
+        - --travis=travis-ci.org
