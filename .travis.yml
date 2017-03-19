@@ -1,8 +1,13 @@
+env:
+    global:
+        - LC_CTYPE=en_US.UTF-8
+
 language: objective-c
 osx_image: xcode8.2
-xcode_project: Chronos.xcodeproj
-xcode_scheme: Chronos
-xcode_sdk: iphonesimulator
+
+script:
+    - xcodebuild build test -workspace Chronos.xcworkspace -scheme Chronos -destination "platform=iOS Simulator,name=iPhone 6 Plus,OS=9.3"
+
 notifications:
   slack:
     secure: Ku4Qo7NxsJdspvZdlpirTBuQMnG3Idqr9lMjREU1hrnjmfXp0JCTkXtpg4tshJ+wz9BibNKwGYuwCNsbCshcRRotMxzODkaUBt9mNpwWkjJqKVx1A5Cws1/kqp8bUp41VERNGSvcqSCVUxM13PN+70/Cttkc/Eclfk08rmP/SolD1CcRxq7l2iCT7mrDz9KaUkNTo2jHpCLEbMJI5oH/UUEaDI2oa9CP0f5B0IrO5hVl7Irn0CRbwuNiUONLuri8VTci7X4zydRUuAJJi3SQms3IHakgvV5kqCR692p6CnHhQilZ8teH7mNXlu8SHV33BROLsnioo2dWmM3Is8VF2JWJMWwefF0h3WwJ4Y3SdCKHDbHjqdMQOTu+cjeag83x6l2etoAu4SAQkVXg7O72+yzzvzTvz11heEw9d1ZKnIGnLmhx0nNzWd80R3YIaepXfeiGsFInr218ChvLNcWz8NB7SfszJb+OK0+lWR/DeAWvrpT/ono7CTBqLlOVNnuE7Sl6P9JEWfI1POiL6MxU8Ojq20bqjZSmtyqvPcCkjyvmR1C6FvaeqdwUmt5kczCchWfdNs/8eP+voiEieidOAAhhGpmszQ9G5a8g+Ac+oO8A/EWxXLQAeuRKAx/mJL27BEO2J0j0pQbn9wz+ZerVhO9mvKoVq/VfQ+7iqa6nGQU=
