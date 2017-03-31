@@ -57,7 +57,7 @@ class StudentDetailViewController: UITableViewController, MFMailComposeViewContr
             CKQuery(recordType: "Attendance", predicate: predicate),
             inZoneWithID: nil) { results, error in
                 if error != nil {
-                    print("Error geting classes : \(error?.localizedDescription)", terminator: "")
+                    print("Error geting classes : \(String(describing: error?.localizedDescription))", terminator: "")
                 } else {
                     if results!.count > 0 {
                         print(results!, terminator: "")
@@ -93,7 +93,7 @@ class StudentDetailViewController: UITableViewController, MFMailComposeViewContr
 
             let filePath = self.report.getDocumentPath(withName: filename).stringByAppendingPathComponent(filename+".html")
             if let fileData = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
-                    mailComposer.addAttachmentData(fileData, mimeType: "text/html", fileName: "Student Attendance - \(self.studentId)")
+                    mailComposer.addAttachmentData(fileData, mimeType: "text/html", fileName: "Student Attendance - \(String(describing: self.studentId))")
 
             }
 
