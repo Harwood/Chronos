@@ -52,7 +52,7 @@ class ChronosTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 10, handler: { (error) in
-            XCTAssertNil(error, "Test timed out. \(error?.localizedDescription)")
+            XCTAssertNil(error, "Test timed out. \(String(describing: error?.localizedDescription))")
         })
     }
 }
