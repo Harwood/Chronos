@@ -3,14 +3,14 @@ env:
         - LC_CTYPE=en_US.UTF-8
 
 language: objective-c
-osx_image: xcode8.2
+osx_image: xcode8.3
 
 xcode_project: Chronos.xcodeproj
 xcode_scheme: Chronos
 xcode_sdk: iphonesimulator
 
 script:
-    - xcodebuild build test -workspace Chronos.xcworkspace -scheme Chronos -destination 'platform=iOS Simulator,id=7B6F8C6B-B67A-4F64-BB70-AE1FF077ACC2'
+    - xcodebuild build test -workspace Chronos.xcworkspace -scheme Chronos -destination 'platform=iOS Simulator,id=E50EF337-9E75-4E26-A27A-7360A2BCC92B'
 
 notifications:
   slack:

@@ -20,7 +20,6 @@
 		1790EB0E1C547467004D7C7E /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790EB0D1C547467004D7C7E /* Student.swift */; };
 		1790EB101C54751A004D7C7E /* DatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790EB0F1C54751A004D7C7E /* DatabaseAPI.swift */; };
 		1790EB121C547D1F004D7C7E /* StudentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790EB111C547D1F004D7C7E /* StudentDetailViewController.swift */; };
-		B62855125A81787E1ED44622 /* Pods_Chronos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188A2FB986E097156EBA211F /* Pods_Chronos.framework */; };
 		C29941D5C620627BFEF52E8E /* Pods_Chronos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AA17FB55879A41EC249C8B /* Pods_Chronos.framework */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
 		F47029FB1A7F27DB00E30A3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47029F91A7F27DB00E30A3C /* Main.storyboard */; };
@@ -84,7 +83,6 @@
 				F4702A161A7F342F00E30A3C /* MapKit.framework in Frameworks */,
 				17064A5E1C3E036B001344E7 /* CloudKit.framework in Frameworks */,
 				C29941D5C620627BFEF52E8E /* Pods_Chronos.framework in Frameworks */,
-				B62855125A81787E1ED44622 /* Pods_Chronos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +264,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = " There Be Dragons Studio";
 				TargetAttributes = {
 					F47029EF1A7F27DB00E30A3C = {
@@ -509,7 +507,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -548,7 +546,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -570,7 +568,7 @@
 				DEVELOPMENT_TEAM = GK4B8G3DC4;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "$(SRCROOT)/Chronos/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.harwood.ChronosICLV;
 				PRODUCT_NAME = Chronos;
@@ -597,7 +595,7 @@
 				DEVELOPMENT_TEAM = GK4B8G3DC4;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "$(SRCROOT)/Chronos/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.harwood.ChronosICLV;
 				PRODUCT_NAME = Chronos;
