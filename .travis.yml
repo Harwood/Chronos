@@ -10,7 +10,7 @@ xcode_scheme: Chronos
 xcode_sdk: iphonesimulator
 
 script:
-    - xcodebuild build test -workspace Chronos.xcworkspace -scheme Chronos -destination 'platform=iOS Simulator'
+    - xcodebuild build test -workspace Chronos.xcworkspace -scheme Chronos -destination 'platform=iOS Simulator, id:E50EF337-9E75-4E26-A27A-7360A2BCC92B'
 
 notifications:
   slack:
